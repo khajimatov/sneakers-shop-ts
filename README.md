@@ -1,4 +1,5 @@
 # Sneakers shop website
+This project is a successor of one of my previos projects - [Sneakers Shop](https://github.com/khajimatov/sneakers-shop)
 ### List of things to implement / learn
 - [ ] React router
 - [ ] Firebase or other
@@ -12,3 +13,4 @@
 - [ ] Radix UI
 - [ ] TypeScript
 - [ ] Deployment
+- [ ] Jest
