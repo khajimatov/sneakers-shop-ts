@@ -15,9 +15,9 @@ header {
     width: 273px;
 }
 
-header .logoBlock section:hover {
+header .logoBlock section h2:hover {
     cursor: pointer;
-    opacity: 65%;
+    color: var(--accent-color);
 }
 
 header .logoBlock h2 {

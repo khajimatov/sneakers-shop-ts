@@ -1,12 +1,13 @@
 .card {
     box-sizing: border-box;
     width: 280px;
-    height: 280px;
     padding: 20px;
     border: 1px solid var(--gray-color);
     border-radius: 18px;
     background-color: #fff;
-    display: flex;
+}
+.card:hover {
+    border: 1px solid #000;
 }
 
 .card .favorite-icon {
@@ -14,6 +15,7 @@
 }
 
 .card .favorite-icon:hover {
+    fill: var(--accent-color);
     cursor: pointer;
 }
 
@@ -22,4 +24,16 @@
     margin-left: auto;
     margin-right: auto;
     object-fit: scale-down;
+}
+
+.card .card-title {
+    margin: 15px 0px 0px;
+    text-transform: uppercase;
+}
+
+.card .card-footer {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
 }
