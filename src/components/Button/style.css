@@ -12,6 +12,5 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: var(--accent-color);
-    transform: translateY(-1px);
+    box-shadow: 0 2px 5px #00000040;
 }
