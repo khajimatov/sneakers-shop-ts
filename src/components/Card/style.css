@@ -14,7 +14,7 @@
     position: absolute;
 }
 
-.card .favorite-icon:hover {
+.card .favorite-icon:hover, .card .favorite-icon:hover path {
     fill: var(--accent-color);
     cursor: pointer;
 }
