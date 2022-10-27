@@ -1,0 +1,45 @@
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-header h1 {
+    margin: 0;
+}
+
+.home-header .search {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    border: 1px solid var(--gray-color);
+    border-radius: 12px;
+    gap: 8px;
+}
+
+.home-header .search label,
+.home-header .search label svg path {
+    cursor: text;
+    stroke: var(--gray-color);
+    display: flex;
+    align-items: center;
+}
+
+.home-header .search input {
+    cursor: text;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+}
+
+.home-header .search input:focus {
+    color: var(--accent-color);
+}
+
+.container {
+    display: flex;
+    margin-top: 40px;
+    column-gap: 60px;
+    row-gap: 30px;
+    flex-wrap: wrap;
+}
