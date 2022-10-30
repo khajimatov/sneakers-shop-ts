@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './style.css';
 
 import Card from '../../components/Card';
+import Empty from '../../components/Empty';
 
 interface Item {
     id: string,
@@ -14,36 +15,7 @@ interface Item {
 const Home = () => {
 
     const [items, setItems] = useState<Item[]>([
-        {
-            "id": "1",
-            "title": "Nike Blazer Mid Suede",
-            "price": 250,
-            "imageURL": "/img/sneakers/1.jpg"
-        },
-        {
-            "id": "2",
-            "title": "Jordan Air Jordan 11",
-            "price": 149,
-            "imageURL": "/img/sneakers/2.jpg"
-        },
-        {
-            "id": "3",
-            "title": "Jordan Air Jordan 11",
-            "price": 149,
-            "imageURL": "/img/sneakers/3.jpg"
-        },
-        {
-            "id": "4",
-            "title": "Jordan Air Jordan 11",
-            "price": 149,
-            "imageURL": "/img/sneakers/4.jpg"
-        },
-        {
-            "id": "5",
-            "title": "Jordan Air Jordan 11",
-            "price": 149,
-            "imageURL": "/img/sneakers/3.jpg"
-        }
+
     ]);
 
     return (
@@ -71,7 +43,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="container">
-                {items.length > 0 ? items.map(item => <Card id={item.id} title={item.title} price={item.price} imageURL={item.imageURL} />) : 'No sneakers'}
+                {items.length > 0 ? items.map(item => <Card id={item.id} title={item.title} price={item.price} imageURL={item.imageURL} />) : <Empty title='No sneakers' />}
             </div>
         </div>
     )
