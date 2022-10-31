@@ -12,3 +12,10 @@ body {
 a:visited {
   color: initial;
 }
+
+.active li,
+.active li path {
+  color: var(--accent-color);
+  fill: var(--accent-color);
+  font-weight: 700;
+}
