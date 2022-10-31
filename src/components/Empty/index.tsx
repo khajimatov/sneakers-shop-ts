@@ -8,7 +8,7 @@ interface EmptyProps {
 
 const Empty = ({ title }: EmptyProps) => {
     return (
-        <div className={styles.Empty}>
+        <div className={styles.empty}>
             <img width={100} height={100} src="/img/no-sneakers.png" alt="No Sneakers Illustration" />
             <h2>{title}</h2>
         </div>
