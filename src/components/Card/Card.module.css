@@ -7,8 +7,10 @@
     background-color: #fff;
 }
 
-.card:hover {
+.card:hover,
+.card:hover .favoriteIcon path {
     border: 1px solid #000;
+    fill: #000;
 }
 
 .card .favoriteIcon {
@@ -19,6 +21,10 @@
 .card .favoriteIcon:hover path {
     fill: var(--accent-color);
     cursor: pointer;
+}
+
+.card .favoriteIcon:active {
+    fill: red;
 }
 
 .card .sneakerImage {

@@ -12,5 +12,5 @@ button {
 
 button:hover {
     cursor: pointer;
-    box-shadow: 0 2px 5px #00000040;
+    box-shadow: 0 4px 16px #00000060;
 }
