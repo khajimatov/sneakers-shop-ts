@@ -80,7 +80,7 @@ const Home = () => {
                             />
                         </svg>
                     </label>
-                    <input type="text" name="search" id="search" placeholder="Search sneakers" onChange={onChangeSearchInput} />
+                    <input type="text" name="search" id="search" placeholder="Search sneakers" onChange={onChangeSearchInput} autoComplete="off" />
                 </div>
             </div>
             <div className="container">
