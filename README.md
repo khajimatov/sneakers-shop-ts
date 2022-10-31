@@ -14,7 +14,7 @@ This project is a successor of one of my previos projects - [Sneakers Shop][Snea
 </details>
 
 ### TO-DO / TO-LEARN
-- [ ] React router
+- [x] React router
 - [ ] Firebase or other
 - [ ] Unit Testing
 - [ ] Redirect after successful order
