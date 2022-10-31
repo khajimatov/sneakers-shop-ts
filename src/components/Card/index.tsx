@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import './style.css';
 
@@ -11,7 +11,7 @@ interface CardProps {
     imageURL: string
 }
 
-const Card = ({ imageURL, title, price }: CardProps) => {
+const Card = ({ id, title, imageURL, price }: CardProps) => {
     return (
         <div className="card">
             <svg className="favorite-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
