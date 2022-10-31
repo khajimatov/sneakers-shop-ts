@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './style.css';
+import styles from './Empty.module.css';
 
 interface EmptyProps {
     title: string
@@ -8,7 +8,7 @@ interface EmptyProps {
 
 const Empty = ({ title }: EmptyProps) => {
     return (
-        <div className="empty">
+        <div className={styles.Empty}>
             <img width={100} height={100} src="/img/no-sneakers.png" alt="No Sneakers Illustration" />
             <h2>{title}</h2>
         </div>

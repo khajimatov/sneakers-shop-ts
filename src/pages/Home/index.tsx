@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-import './style.css';
+import styles from './Home.module.css';
 
 import Card from '../../components/Card';
 import Empty from '../../components/Empty';
@@ -14,36 +14,42 @@ interface Item {
 
 const Home = () => {
 
-    const [items, setItems] = useState<Item[]>([{
-        "id": "1",
-        "title": "Nike Blazer Mid Suede",
-        "price": 250,
-        "imageURL": "/img/sneakers/1.jpg"
-    },
-    {
-        "id": "2",
-        "title": "Jordan Air Jordan 11",
-        "price": 149,
-        "imageURL": "/img/sneakers/2.jpg"
-    },
-    {
-        "id": "3",
-        "title": "Jordan Air Jordan 11",
-        "price": 149,
-        "imageURL": "/img/sneakers/3.jpg"
-    },
-    {
-        "id": "4",
-        "title": "Jordan Air Jordan 11",
-        "price": 149,
-        "imageURL": "/img/sneakers/4.jpg"
-    },
-    {
-        "id": "5",
-        "title": "Jordan Air Jordan 11",
-        "price": 149,
-        "imageURL": "/img/sneakers/3.jpg"
-    }]);
+    const [items, setItems] = useState<Item[]>([]);
+
+    useEffect(() => {
+        return () => {
+            setItems([{
+                "id": "1",
+                "title": "Nike Blazer Mid Suede",
+                "price": 250,
+                "imageURL": "/img/sneakers/1.jpg"
+            },
+            {
+                "id": "2",
+                "title": "Jordan Air Jordan 11",
+                "price": 149,
+                "imageURL": "/img/sneakers/2.jpg"
+            },
+            {
+                "id": "3",
+                "title": "Nike Force Yezzy",
+                "price": 149,
+                "imageURL": "/img/sneakers/3.jpg"
+            },
+            {
+                "id": "4",
+                "title": "Adidas X Gen",
+                "price": 149,
+                "imageURL": "/img/sneakers/4.jpg"
+            },
+            {
+                "id": "5",
+                "title": "Puma II Exclusive",
+                "price": 149,
+                "imageURL": "/img/sneakers/3.jpg"
+            }]);
+        }
+    }, [])
 
     const [searchValue, setSearchValue] = useState('');
 
@@ -59,10 +65,10 @@ const Home = () => {
     }
 
     return (
-        <div className='home'>
-            <div className="home-header">
+        <div className={styles.home}>
+            <div className={styles.homeHeader}>
                 <h1>Sneakers</h1>
-                <div className="search">
+                <div className={styles.search}>
                     <label htmlFor="search">
                         <svg
                             width="18"
@@ -82,7 +88,7 @@ const Home = () => {
                     <input type="text" name="search" id="search" placeholder="Search sneakers" onChange={onChangeSearchInput} autoComplete="off" />
                 </div>
             </div>
-            <div className="container">
+            <div className={styles.container}>
                 {renderItems()}
             </div>
         </div>

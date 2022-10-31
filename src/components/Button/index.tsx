@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './style.css';
+import styles from './Button.module.css';
 
 interface ButtonProps {
     text: string
@@ -8,7 +8,7 @@ interface ButtonProps {
 
 const Button = ({ text }: ButtonProps) => {
     return (
-        <button>{text}</button>
+        <button className={styles.button}>{text}</button>
     )
 }
 

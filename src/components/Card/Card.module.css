@@ -6,32 +6,34 @@
     border-radius: 18px;
     background-color: #fff;
 }
+
 .card:hover {
     border: 1px solid #000;
 }
 
-.card .favorite-icon {
+.card .favoriteIcon {
     position: absolute;
 }
 
-.card .favorite-icon:hover, .card .favorite-icon:hover path {
+.card .favoriteIcon:hover,
+.card .favoriteIcon:hover path {
     fill: var(--accent-color);
     cursor: pointer;
 }
 
-.card .sneaker-image {
+.card .sneakerImage {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     object-fit: scale-down;
 }
 
-.card .card-title {
+.card .cardTitle {
     margin: 15px 0px 0px;
     text-transform: uppercase;
 }
 
-.card .card-footer {
+.card .cardFooter {
     display: flex;
     margin-top: 10px;
     justify-content: space-between;

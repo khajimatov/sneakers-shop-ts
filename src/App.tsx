@@ -17,6 +17,7 @@ function App() {
     <div className="wrapper">
       <Header />
       <Routes>
+        {/* <Route element={<Layout />}> */}
         <Route path="" element={<Home />} />
         <Route path="cart" element={<Suspense fallback={<div>Loading cart...</div>}>
           <Cart />
@@ -28,6 +29,7 @@ function App() {
           <Orders />
         </Suspense>} />
         <Route path="*" element={<NotFound />} />
+        {/* </Route> */}
       </Routes>
     </div>
   );
