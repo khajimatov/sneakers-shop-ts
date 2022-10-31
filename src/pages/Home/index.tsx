@@ -4,7 +4,6 @@ import './style.css';
 
 import Card from '../../components/Card';
 import Empty from '../../components/Empty';
-import { render } from '@testing-library/react';
 
 interface Item {
     id: string,

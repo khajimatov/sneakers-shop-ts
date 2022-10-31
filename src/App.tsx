@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Favorites from './pages/Favorites';
 import Orders from './pages/Orders';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path="orders" element={<Suspense fallback={<div>Loading orders...</div>}>
           <Orders />
         </Suspense>} />
-        <Route path="*" element={<strong>404: NOT FOUND</strong>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
