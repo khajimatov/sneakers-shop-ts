@@ -21,6 +21,6 @@
 
 .buyButton:active {
     transform: scale(0.9);
-    transition: transform 100ms ease-out 30ms;
+    transition: transform 100ms ease-out;
     box-shadow: none;
 }
