@@ -15,6 +15,7 @@ This project is a successor of one of my previos projects - [Sneakers Shop][Snea
 
 ### TO-DO / TO-LEARN
 - [x] React router
+- [x] TypeScript
 - [ ] Firebase or other
 - [ ] Unit Testing
 - [ ] Redirect after successful order
@@ -24,7 +25,6 @@ This project is a successor of one of my previos projects - [Sneakers Shop][Snea
 - [ ] Redux thunk
 - [ ] Redux Saga
 - [ ] Radix UI
-- [ ] TypeScript
 - [ ] Deployment
 - [ ] Jest
 
