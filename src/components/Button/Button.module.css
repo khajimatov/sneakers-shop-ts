@@ -1,8 +1,9 @@
-button {
+.buyButton {
     border: 0;
     outline: 0;
-    background-color: #000;
-    color: #fff;
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
     border-radius: 10px;
     min-width: 80px;
     height: 42px;
@@ -10,7 +11,10 @@ button {
     font-family: 'Space Grotesk';
 }
 
-button:hover {
+.buyButton:hover {
     cursor: pointer;
-    box-shadow: 0 4px 16px #00000060;
+    background-color: #000;
+    color: #fff;
+    transition: background-color 0.25s ease-out;
+    /* box-shadow: 0 4px 16px #00000060; */
 }

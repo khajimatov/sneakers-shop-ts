@@ -15,6 +15,9 @@ interface CartProps {
 }
 
 const Cart = () => {
+
+
+
     return (
         <div className={styles.cart}>
             <div className={styles.headingContainer}>

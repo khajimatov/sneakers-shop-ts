@@ -8,7 +8,7 @@ interface ButtonProps {
 
 const Button = ({ text }: ButtonProps) => {
     return (
-        <button className={styles.button}>{text}</button>
+        <button className={styles.buyButton}>{text}</button>
     )
 }
 
