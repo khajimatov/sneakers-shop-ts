@@ -22,4 +22,5 @@ a:visited {
 
 .active li {
   transform: translateY(-3px);
+  transition: transform 100ms ease-in;
 }
