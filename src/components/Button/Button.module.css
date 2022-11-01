@@ -23,4 +23,5 @@
     transform: scale(0.9);
     transition: transform 100ms ease-out;
     box-shadow: none;
+    
 }
