@@ -11,7 +11,7 @@ interface CardProps {
     imageURL: string
 }
 
-const Card = ({ id, title, imageURL, price }: CardProps) => {
+const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
     return (
         <div className={styles.card} id={id}>
             <svg className={styles.favoriteIcon} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

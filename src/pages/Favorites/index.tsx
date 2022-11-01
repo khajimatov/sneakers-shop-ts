@@ -4,10 +4,7 @@ import styles from './Favorites.module.css';
 
 import Empty from '../../components/Empty';
 
-const Favorites = () => {
-
-
-
+const Favorites: React.FC = () => {
     return (
         <div className={styles.favorites}>
             <div className={styles.headingContainer}>

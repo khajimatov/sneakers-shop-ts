@@ -4,7 +4,7 @@ import styles from './Orders.module.css';
 
 import Empty from '../../components/Empty';
 
-const Orders = () => {
+const Orders: React.FC = () => {
     return (
         <div className={styles.orders}>
             <div className={styles.headingContainer}>

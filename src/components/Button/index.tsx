@@ -6,7 +6,7 @@ interface ButtonProps {
     text: string
 }
 
-const Button = ({ text }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ text }) => {
     return (
         <button className={styles.buyButton}>{text}</button>
     )

@@ -6,7 +6,7 @@ interface EmptyProps {
     title: string
 }
 
-const Empty = ({ title }: EmptyProps) => {
+const Empty: React.FC<EmptyProps> = ({ title }) => {
     return (
         <div className={styles.empty}>
             <img width={100} height={100} src="/img/no-sneakers.png" alt="No Sneakers Illustration" />

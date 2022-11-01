@@ -12,7 +12,7 @@ interface Item {
     imageURL: string
 }
 
-const Home = () => {
+const Home: React.FC = () => {
 
     const [items, setItems] = useState<Item[]>([]);
 

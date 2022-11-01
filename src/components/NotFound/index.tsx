@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './NotFound.module.css'
 
-const NotFound = () => {
+const NotFound: React.FC = () => {
     return (
         <div className={styles.container2}>
             <svg width="348" height="193" viewBox="0 0 348 193" fill="none" xmlns="http://www.w3.org/2000/svg">
