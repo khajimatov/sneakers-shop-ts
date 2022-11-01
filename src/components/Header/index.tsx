@@ -1,22 +1,24 @@
 import React from 'react';
 
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import styles from './Header.module.css';
 
 const Header = () => {
     return (
         <header className={styles.header}>
+
             <div className={styles.logoBlock}>
                 <img src="/img/logo.png" alt="Sneakers Shop Logo" width={60} height={60} />
+
                 <NavLink to="" style={{ textDecoration: 'none' }}>
                     <section>
                         <h2>REACT SNEAKERS</h2>
                         <h5>Sneakers Shop in TypeScript</h5>
                     </section>
                 </NavLink>
-
             </div>
+
             <ul>
                 <NavLink to="cart" style={{ textDecoration: 'none' }}>
                     <li>

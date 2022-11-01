@@ -19,3 +19,7 @@ a:visited {
   fill: var(--accent-color);
   font-weight: 700;
 }
+
+.active li {
+  transform: translateY(-3px);
+}
