@@ -20,7 +20,7 @@ This project is a successor of one of my previos projects - [Sneakers Shop][Snea
 - [ ] Unit Testing
 - [ ] Redirect after successful order
 - [ ] Redux Slices
-- [ ] Redux Toolkit
+- [x] Redux Toolkit
 - [ ] Middleware
 - [ ] Redux thunk
 - [ ] Redux Saga
