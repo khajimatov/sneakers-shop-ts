@@ -26,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
     const isAdded = (thisCard: Item) => {
         return cart.find((obj) => Number(obj.id) === Number(thisCard.id));
     }
+
     const onBuyClick = (e: React.MouseEvent) => {
 
         if (isAdded(thisCard)) {
@@ -35,7 +36,7 @@ const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
         }
     }
     return (
-        <button onClick={onBuyClick} className={styles.buyButton}>{text}</button>
+        <button onClick={onBuyClick} className={styles.buyButton}>{isAdded(thisCard) ? "REMOVE" : text}</button>
     )
 }
 

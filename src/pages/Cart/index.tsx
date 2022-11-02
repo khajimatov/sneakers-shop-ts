@@ -10,7 +10,6 @@ import Empty from '../../components/Empty';
 const Cart: React.FC = () => {
     const cart = useSelector((state: RootState) => state.cart);
 
-    console.log(cart);
     const renderItems = () => {
         return cart.length > 0 ? cart.map(item => <Card key={item.id} id={item.id} title={item.title} price={item.price} imageURL={item.imageURL} />) : <Empty title='Cart is empty' />
     }

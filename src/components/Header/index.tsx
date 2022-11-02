@@ -4,7 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './Header.module.css';
 
+import { useSelector } from 'react-redux';
+import { RootState } from '../../index';
+
 const Header: React.FC = () => {
+
+    const cartCount = useSelector((state: RootState) => state.cart.length);
+
     return (
         <header className={styles.header}>
 
@@ -27,7 +33,7 @@ const Header: React.FC = () => {
                             <path d="M5.68045 19.591C6.53605 19.591 7.22964 18.8974 7.22964 18.0418C7.22964 17.1862 6.53605 16.4926 5.68045 16.4926C4.82485 16.4926 4.13126 17.1862 4.13126 18.0418C4.13126 18.8974 4.82485 19.591 5.68045 19.591Z" fill="#c2c2c2" />
                             <path d="M16.0084 19.591C16.864 19.591 17.5576 18.8974 17.5576 18.0418C17.5576 17.1862 16.864 16.4926 16.0084 16.4926C15.1528 16.4926 14.4592 17.1862 14.4592 18.0418C14.4592 18.8974 15.1528 19.591 16.0084 19.591Z" fill="#c2c2c2" />
                         </svg>
-                        <span>Cart</span>
+                        <span>{cartCount > 0 ? `Cart(${cartCount})` : 'Cart'}</span>
                     </li>
                 </NavLink>
                 <NavLink to="favorites" style={{ textDecoration: 'none' }}>
