@@ -1,10 +1,17 @@
 import { ADD_TO_CART, ADD_TO_FAVORITES, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES } from "./actionTypes";
 
-export const addToCart = (value) => {
+interface Item {
+    id: string,
+    title: string,
+    price: number,
+    imageURL: string
+}
+
+export const addToCart = (value: Item) => {
     return { type: ADD_TO_CART, value: value };
 }
-export const addToFavorites = () => {
-    return { type: ADD_TO_FAVORITES };
+export const addToFavorites = (value: Item) => {
+    return { type: ADD_TO_FAVORITES, item: value };
 }
 export const addToOrders = () => {
     return { type: ADD_TO_ORDERS };

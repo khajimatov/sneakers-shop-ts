@@ -19,10 +19,7 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
 
     const thisCard: CardProps = { id: id, title: title, imageURL: imageURL, price: price };
 
-    console.log(thisCard);
-
     const dispatch = useDispatch();
-    const counter = useSelector((state: RootState) => state.items);
 
     const onFavoriteClick = (e: React.MouseEvent) => {
 
@@ -31,7 +28,7 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
         favoriteClickSound!.volume = 0.03;
         favoriteClickSound?.play();
 
-        dispatch(addToFavorites(5));
+        dispatch(addToFavorites(thisCard));
     }
 
 
@@ -47,7 +44,7 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
             <hr />
             <div className={styles.cardFooter}>
                 <section>
-                    <small>PRICE:</small>{counter}<br />
+                    <small>PRICE:</small><br />
                     <b>${price} USD</b>
                 </section>
                 <Button text='+ BUY' />
