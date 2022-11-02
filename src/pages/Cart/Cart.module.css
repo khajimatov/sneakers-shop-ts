@@ -2,6 +2,7 @@
     height: 48.8px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .heading {
