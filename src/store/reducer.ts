@@ -29,13 +29,13 @@ const initialState: IState = {
 const reducer = (state = initialState, action: Action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            return { ...state, items: [...state.items, action.item] }
+            return { ...state, cart: [...state.cart, action.item] }
         case ADD_TO_FAVORITES:
             return { ...state, favorites: [...state.favorites, action.item] }
         case ADD_TO_ORDERS:
-            return { ...state, favorites: [...state.favorites, action.item] }
+            return { ...state, orders: [...state.favorites, action.item] }
         case REMOVE_FROM_CART:
-            return { ...state, favorites: [...state.favorites, action.item] }
+            return { ...state, cart: state.cart.filter(obj => obj.id !== action.item.id) }
         case REMOVE_FROM_FAVORITES:
             return { ...state, favorites: state.favorites.filter(obj => obj.id !== action.item.id) }
         default:

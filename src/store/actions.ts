@@ -8,16 +8,16 @@ interface Item {
 }
 
 export const addToCart = (value: Item) => {
-    return { type: ADD_TO_CART, value: value };
+    return { type: ADD_TO_CART, item: value };
 }
 export const addToFavorites = (value: Item) => {
     return { type: ADD_TO_FAVORITES, item: value };
 }
-export const addToOrders = () => {
-    return { type: ADD_TO_ORDERS };
+export const addToOrders = (value: Item) => {
+    return { type: ADD_TO_ORDERS, item: value };
 }
-export const removeFromCart = () => {
-    return { type: REMOVE_FROM_CART };
+export const removeFromCart = (value: Item) => {
+    return { type: REMOVE_FROM_CART, item: value };
 }
 export const removeFromFavorites = (value: Item) => {
     return { type: REMOVE_FROM_FAVORITES, item: value };

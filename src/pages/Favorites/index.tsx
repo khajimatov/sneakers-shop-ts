@@ -4,9 +4,8 @@ import styles from './Favorites.module.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../index';
 
-import Empty from '../../components/Empty';
 import Card from '../../components/Card';
-
+import Empty from '../../components/Empty';
 
 const Favorites: React.FC = () => {
     const favorites = useSelector((state: RootState) => state.favorites);

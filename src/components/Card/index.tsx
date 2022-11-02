@@ -4,9 +4,9 @@ import styles from './Card.module.css';
 
 import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, addToFavorites, removeFromFavorites } from '../../store/actions';
+import { addToFavorites, removeFromFavorites } from '../../store/actions';
 
-import { RootState } from '../../index'
+import { RootState } from '../../index';
 
 interface CardProps {
     id: string,
@@ -29,21 +29,20 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
     const onFavoriteClick = (e: React.MouseEvent) => {
 
         const favoriteClickSound = document.querySelector<HTMLAudioElement>('#favoriteClickSound');
-        favoriteClickSound!.currentTime = 0;
-        favoriteClickSound!.volume = 0.03;
-        favoriteClickSound?.play();
+        favoriteClickSound!.volume = 0.007;
 
         if (isLiked(thisCard)) {
             dispatch(removeFromFavorites(thisCard));
         } else {
             dispatch(addToFavorites(thisCard));
+            favoriteClickSound!.currentTime = 0;
+            favoriteClickSound?.play();
         }
     }
 
-
     return (
         <div className={styles.card} id={id}>
-            <audio id="favoriteClickSound" src="/audio/favorite.wav" preload="auto"></audio>
+            <audio id="favoriteClickSound" src="/audio/favorite.wav" preload="metadata"></audio>
             {isLiked(thisCard) ?
                 <svg onClick={onFavoriteClick} className={styles.favoriteIcon} width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.8232 8.07339L10.0044 16L2.18558 8.07339C1.93078 7.81275 1.70897 7.52088 1.52525 7.20452C1.35238 6.89155 1.21638 6.55898 1.12005 6.2137C1.04316 5.86847 1.00291 5.51586 1 5.16191C1.00203 4.79783 1.04228 4.43503 1.12005 4.07963C1.21355 3.73336 1.3497 3.40045 1.52525 3.0888C1.70534 2.76869 1.92745 2.47907 2.18558 2.21994C2.57111 1.83358 3.02403 1.52344 3.52124 1.30533C4.52315 0.898222 5.64085 0.898222 6.64277 1.30533C7.13802 1.51417 7.58523 1.82056 7.96342 2.2047L10.0044 4.29303L12.0455 2.2047C12.4234 1.81988 12.8721 1.51429 13.366 1.30533C14.368 0.898222 15.4857 0.898222 16.4876 1.30533C16.9844 1.52331 17.4376 1.83427 17.8232 2.21994C18.0844 2.47145 18.3035 2.76413 18.4686 3.0888C18.8161 3.71145 18.9973 4.41565 18.9938 5.13142C19.0143 5.49973 18.9839 5.86914 18.9038 6.22895C18.7901 6.73907 18.4391 7.44907 17.8232 8.07339Z" fill="#EB3E34" />
@@ -63,7 +62,7 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
                     <small>PRICE:</small><br />
                     <b>${price} USD</b>
                 </section>
-                <Button text='+ BUY' />
+                <Button thisCard={thisCard} text='+ BUY' />
             </div>
 
         </div>
