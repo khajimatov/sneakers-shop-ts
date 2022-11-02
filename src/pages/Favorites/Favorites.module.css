@@ -1,8 +1,9 @@
-.headingContainer{
-    height: 46.4px;
+.headingContainer {
+    height: 48.8px;
     display: flex;
     align-items: center;
 }
+
 .heading {
     margin: 0;
 }
