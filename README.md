@@ -11,6 +11,8 @@ This project is a successor of one of my previos projects - [Sneakers Shop][Snea
 3. **Testing**. In the future I want to learn and add some Unit testing.
 
 4. **Radix UI[^1]**. Will add some UI components from this *library*.
+  
+5. **Supabase[^2]**. Firebase alternative.
 </details>
 
 ### TO-DO / TO-LEARN
@@ -29,5 +31,7 @@ This project is a successor of one of my previos projects - [Sneakers Shop][Snea
 - [ ] Jest
 
 [^1]: An open-source UI component library for building high-quality, accessible design systems and web apps. https://www.radix-ui.com
+
+[^2]: Supabase is an open source Firebase alternative providing all the backend features you need to build a product. https://www.supabase.com
 
 [Sneakers Shop Link]: https://github.com/khajimatov/sneakers-shop
