@@ -4,7 +4,7 @@ import styles from './Card.module.css';
 
 import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { incrementCounter } from '../../store/actions';
+import { addToCart, addToFavorites } from '../../store/actions';
 
 import { RootState } from '../../index'
 
@@ -21,12 +21,13 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
     const counter = useSelector((state: RootState) => state.counter);
 
     const onClick = (e: React.MouseEvent) => {
+
         const favoriteClickSound = document.querySelector<HTMLAudioElement>('#favoriteClickSound');
         favoriteClickSound!.currentTime = 0;
         favoriteClickSound!.volume = 0.03;
         favoriteClickSound?.play();
-        dispatch(incrementCounter(5));
-        console.log(e);
+
+        dispatch(addToCart(5));
     }
 
 
