@@ -19,6 +19,6 @@ export const addToOrders = () => {
 export const removeFromCart = () => {
     return { type: REMOVE_FROM_CART };
 }
-export const removeFromFavorites = () => {
-    return { type: REMOVE_FROM_FAVORITES };
+export const removeFromFavorites = (value: Item) => {
+    return { type: REMOVE_FROM_FAVORITES, item: value };
 }

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './Card.module.css';
 
 import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, addToFavorites } from '../../store/actions';
+import { addToCart, addToFavorites, removeFromFavorites } from '../../store/actions';
 
 import { RootState } from '../../index'
 
@@ -17,14 +17,13 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
 
-    // const [isLiked, setIsLiked] = useState(false);
     const thisCard: CardProps = { id: id, title: title, imageURL: imageURL, price: price };
 
     const dispatch = useDispatch();
     const favorites = useSelector((state: RootState) => state.favorites);
 
     const isLiked = (thisCard: CardProps) => {
-        return favorites.find((obj) => Number(obj.id) === Number(thisCard.id))
+        return favorites.find((obj) => Number(obj.id) === Number(thisCard.id));
     }
 
     const onFavoriteClick = (e: React.MouseEvent) => {
@@ -34,7 +33,11 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
         favoriteClickSound!.volume = 0.03;
         favoriteClickSound?.play();
 
-        dispatch(addToFavorites(thisCard));
+        if (isLiked(thisCard)) {
+            dispatch(removeFromFavorites(thisCard));
+        } else {
+            dispatch(addToFavorites(thisCard));
+        }
     }
 
 

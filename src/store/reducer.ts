@@ -32,6 +32,12 @@ const reducer = (state = initialState, action: Action) => {
             return { ...state, items: [...state.items, action.item] }
         case ADD_TO_FAVORITES:
             return { ...state, favorites: [...state.favorites, action.item] }
+        case ADD_TO_ORDERS:
+            return { ...state, favorites: [...state.favorites, action.item] }
+        case REMOVE_FROM_CART:
+            return { ...state, favorites: [...state.favorites, action.item] }
+        case REMOVE_FROM_FAVORITES:
+            return { ...state, favorites: state.favorites.filter(obj => obj.id !== action.item.id) }
         default:
             return state;
     }
