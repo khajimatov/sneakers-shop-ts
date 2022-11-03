@@ -3,9 +3,9 @@ import axios from 'axios';
 import styles from './Button.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, removeFromCart } from '../../store/actions';
+import { postToCart, removeFromCart } from '../../store/actions';
 
-import { RootState } from '../../index';
+import { RootState, useAppDispatch } from '../../index';
 
 interface Item {
     id: string,
@@ -22,7 +22,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
 
     const cart = useSelector((state: RootState) => state.cart);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const isAdded = (thisCard: Item) => {
         return cart.find((obj) => Number(obj.id) === Number(thisCard.id));
@@ -36,8 +36,7 @@ const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
                 await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/cart/${data[0].index}`);
                 dispatch(removeFromCart(thisCard));
             } else {
-                await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/cart', thisCard);
-                dispatch(addToCart(thisCard));
+                dispatch(postToCart(thisCard));
             }
         } catch (error) {
             alert(error);
