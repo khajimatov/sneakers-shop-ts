@@ -32,12 +32,12 @@ const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
 
         try {
             if (isAdded(thisCard)) {
+                const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/cart?id=${thisCard.id}`);
+                await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/cart/${data[0].index}`);
                 dispatch(removeFromCart(thisCard));
             } else {
                 await axios.post(
-                    'https://611a826e5710ca00173a1a6e.mockapi.io/cart',
-                    thisCard,
-                );
+                    'https://611a826e5710ca00173a1a6e.mockapi.io/cart', thisCard);
                 dispatch(addToCart(thisCard));
             }
         } catch (error) {
