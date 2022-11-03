@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios';
 import styles from './Button.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,12 +28,20 @@ const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
         return cart.find((obj) => Number(obj.id) === Number(thisCard.id));
     }
 
-    const onBuyClick = (e: React.MouseEvent) => {
+    const onBuyClick = async (e: React.MouseEvent) => {
 
-        if (isAdded(thisCard)) {
-            dispatch(removeFromCart(thisCard));
-        } else {
-            dispatch(addToCart(thisCard));
+        try {
+            if (isAdded(thisCard)) {
+                dispatch(removeFromCart(thisCard));
+            } else {
+                await axios.post(
+                    'https://611a826e5710ca00173a1a6e.mockapi.io/cart',
+                    thisCard,
+                );
+                dispatch(addToCart(thisCard));
+            }
+        } catch (error) {
+            alert(error);
         }
     }
     return (
