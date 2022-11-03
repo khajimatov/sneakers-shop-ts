@@ -16,7 +16,6 @@
     background-color: #000000;
     color: #fff;
     transition: background-color 100ms ease-in;
-    box-shadow: 0 4px 16px #00000060;
 }
 
 .buyButton:active {

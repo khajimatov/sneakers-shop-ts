@@ -16,3 +16,9 @@
     row-gap: 30px;
     flex-wrap: wrap;
 }
+
+.totalBlock {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

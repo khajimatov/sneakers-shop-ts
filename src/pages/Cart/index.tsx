@@ -22,8 +22,8 @@ const Cart: React.FC = () => {
         <div className={styles.cart}>
             <div className={styles.headingContainer}>
                 <h1 className={styles.heading}>Cart</h1>
-                <div>
-                    Total: $<b>{cart.length > 0 ? cart.map(o => o.price).reduce((a, c) => { return a + c }) : 0}</b> USD
+                <div className={styles.totalBlock}>
+                    <div><b>Total: </b>${cart.length > 0 ? cart.map(o => o.price).reduce((a, c) => { return a + c }) : 0} USD</div>
                     <OrderButton />
                 </div>
             </div>
