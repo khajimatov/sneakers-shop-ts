@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './Header.module.css';
 
-import { useSelector } from 'react-redux';
 import { RootState } from '../../index';
+import { useAppSelector } from '../../store/hooks';
 
 const Header: React.FC = () => {
 
-    const cartCount = useSelector((state: RootState) => state.cart.length);
+    const cartCount = useAppSelector((state: RootState) => state.cart.length);
 
     return (
         <header className={styles.header}>

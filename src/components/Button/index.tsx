@@ -2,10 +2,10 @@ import React from 'react'
 import axios from 'axios';
 import styles from './Button.module.css';
 
-import { useDispatch, useSelector } from 'react-redux';
 import { postToCart, removeFromCart } from '../../store/actions';
 
-import { RootState, useAppDispatch } from '../../index';
+import { RootState } from '../../index';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 interface Item {
     id: string,
@@ -21,7 +21,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
 
-    const cart = useSelector((state: RootState) => state.cart);
+    const cart = useAppSelector((state: RootState) => state.cart);
     const dispatch = useAppDispatch();
 
     const isAdded = (thisCard: Item) => {

@@ -4,10 +4,10 @@ import axios from 'axios';
 import styles from './Card.module.css';
 
 import Button from '../Button';
-import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorites, removeFromFavorites } from '../../store/actions';
 
 import { RootState } from '../../index';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 interface CardProps {
     id: string,
@@ -20,8 +20,8 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
 
     const thisCard: CardProps = { id: id, title: title, imageURL: imageURL, price: price };
 
-    const dispatch = useDispatch();
-    const favorites = useSelector((state: RootState) => state.favorites);
+    const dispatch = useAppDispatch();
+    const favorites = useAppSelector((state: RootState) => state.favorites);
 
     const isLiked = (thisCard: CardProps) => {
         return favorites.find((obj) => Number(obj.id) === Number(thisCard.id));

@@ -5,18 +5,17 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import { useDispatch } from 'react-redux';
 
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import reducer from './store/reducer';
 
-export const store = configureStore({ reducer: reducer });
+const store = configureStore({ reducer: reducer });
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = () => useDispatch<AppDispatch>();
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './Cart.module.css';
 
-import { useSelector } from 'react-redux';
 import { RootState } from '../../index';
 
 import Card from '../../components/Card';
 import Empty from '../../components/Empty';
 import OrderButton from '../../components/OrderButton';
+import { useAppSelector } from '../../store/hooks';
 
 const Cart: React.FC = () => {
 
-    const cart = useSelector((state: RootState) => state.cart);
+    const cart = useAppSelector((state: RootState) => state.cart);
 
     const renderItems = () => {
         return cart.length > 0 ? cart.map(item =>
