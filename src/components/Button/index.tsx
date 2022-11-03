@@ -36,8 +36,7 @@ const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
                 await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/cart/${data[0].index}`);
                 dispatch(removeFromCart(thisCard));
             } else {
-                await axios.post(
-                    'https://611a826e5710ca00173a1a6e.mockapi.io/cart', thisCard);
+                await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/cart', thisCard);
                 dispatch(addToCart(thisCard));
             }
         } catch (error) {

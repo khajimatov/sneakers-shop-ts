@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import styles from './Card.module.css';
 
@@ -26,17 +27,24 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
         return favorites.find((obj) => Number(obj.id) === Number(thisCard.id));
     }
 
-    const onFavoriteClick = (e: React.MouseEvent) => {
+    const onFavoriteClick = async (e: React.MouseEvent) => {
 
         const favoriteClickSound = document.querySelector<HTMLAudioElement>('#favoriteClickSound');
         favoriteClickSound!.volume = 0.007;
 
-        if (isLiked(thisCard)) {
-            dispatch(removeFromFavorites(thisCard));
-        } else {
-            dispatch(addToFavorites(thisCard));
-            favoriteClickSound!.currentTime = 0;
-            favoriteClickSound?.play();
+        try {
+            if (isLiked(thisCard)) {
+                const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites?id=${thisCard.id}`);
+                await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites/${data[0].index}`);
+                dispatch(removeFromFavorites(thisCard));
+            } else {
+                await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/favorites', thisCard);
+                dispatch(addToFavorites(thisCard));
+                favoriteClickSound!.currentTime = 0;
+                favoriteClickSound?.play();
+            }
+        } catch (error) {
+            alert(error);
         }
     }
 
