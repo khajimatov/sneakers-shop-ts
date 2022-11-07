@@ -9,6 +9,19 @@ import axios from 'axios';
 import Card from '../../components/Card';
 import { setOrders } from '../../store/actions';
 
+
+interface Item {
+    id: string,
+    title: string,
+    price: number,
+    imageURL: string
+}
+interface Order {
+    index: string,
+    items: Item[]
+}
+
+
 const Orders: React.FC = () => {
 
     const dispatch = useAppDispatch();
@@ -23,7 +36,13 @@ const Orders: React.FC = () => {
     const orders = useAppSelector((state: RootState) => state.orders);
 
     const renderItems = () => {
-        return orders.length > 0 ? orders.map(item => <Card key={item.id} id={item.id} title={item.title} price={item.price} imageURL={item.imageURL} />) : <Empty title='Favorites are empty' />
+        return orders.length > 0 ? orders.map((item: Order) =>
+            <>
+                <h1>{item.index}</h1>
+                <hr />
+                {item.items.map(card => <Card key={card.id} id={card.id} title={card.title} price={card.price} imageURL={card.imageURL} />)}
+            </>
+        ) : <Empty title='Favorites are empty' />
     }
     return (
         <div className={styles.orders}>

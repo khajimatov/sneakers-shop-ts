@@ -10,14 +10,19 @@ interface Item {
 interface Action {
     type: string,
     item: Item,
-    items: Item[]
+    items: Item[],
+    orders: Order[]
 }
 
+interface Order {
+    index: string,
+    items: Item[]
+}
 interface IState {
     items: Item[],
     cart: Item[],
     favorites: Item[],
-    orders: Item[]
+    orders: Order[]
 }
 
 const initialState: IState = {
@@ -40,9 +45,11 @@ const reducer = (state = initialState, action: Action) => {
         case ADD_TO_FAVORITES:
             return { ...state, favorites: [...state.favorites, action.item] }
         case SET_ORDERS:
-            return { ...state, orders: action.items }
+            return { ...state, orders: action.orders }
         case ADD_TO_ORDERS:
-            return { ...state, orders: [...state.favorites, action.item] }
+            let newIndex: string = state.orders.length.toString();
+            let newOrder: Order = { "index": newIndex, "items": action.items };
+            return { ...state, orders: [...state.orders, newOrder] }
         case REMOVE_FROM_CART:
             return { ...state, cart: state.cart.filter(obj => obj.id !== action.item!.id) }
         case REMOVE_FROM_FAVORITES:

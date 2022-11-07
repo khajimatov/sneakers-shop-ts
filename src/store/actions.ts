@@ -11,6 +11,10 @@ interface Item {
     price: number,
     imageURL: string
 }
+interface Order {
+    index: string,
+    items: Item[]
+}
 
 export const setItems = (value: Item[]) => {
     return { type: SET_ITEMS, items: value };
@@ -27,11 +31,11 @@ export const setFavorites = (value: Item[]) => {
 export const addToFavorites = (value: Item) => {
     return { type: ADD_TO_FAVORITES, item: value };
 }
-export const setOrders = (value: Item[]) => {
-    return { type: SET_ORDERS, items: value };
+export const setOrders = (value: Order[]) => {
+    return { type: SET_ORDERS, orders: value };
 }
-export const addToOrders = (value: Item) => {
-    return { type: ADD_TO_ORDERS, item: value };
+export const addToOrders = (value: Item[]) => {
+    return { type: ADD_TO_ORDERS, items: value };
 }
 export const removeFromCart = (value: Item) => {
     return { type: REMOVE_FROM_CART, item: value };
