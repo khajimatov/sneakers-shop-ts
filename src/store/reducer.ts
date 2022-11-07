@@ -9,8 +9,8 @@ interface Item {
 
 interface Action {
     type: string,
-    item?: Item,
-    items?: Item[]
+    item: Item,
+    items: Item[]
 }
 
 interface IState {
