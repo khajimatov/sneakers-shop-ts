@@ -15,8 +15,8 @@ const Orders: React.FC = () => {
 
     useEffect(() => {
         (async function fetchItems() {
-            const favoritesResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/orders');
-            dispatch(setOrders(favoritesResponse.data));
+            const ordersResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/orders');
+            dispatch(setOrders(ordersResponse.data));
         }())
     }, [])
 

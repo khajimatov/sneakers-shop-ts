@@ -6,7 +6,7 @@ import Card from '../../components/Card';
 import Empty from '../../components/Empty';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { setItems } from '../../store/actions';
+import { setCart, setFavorites, setItems } from '../../store/actions';
 import { RootState } from '../..';
 
 const Home: React.FC = () => {
@@ -15,8 +15,10 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         (async function fetchItems() {
-            const itemsResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/items');
+            const [itemsResponse, cartResponse, favoritesResponse] = await Promise.all([axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/items'), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/cart'), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/favorites')]);
             dispatch(setItems(itemsResponse.data));
+            dispatch(setCart(cartResponse.data));
+            dispatch(setFavorites(favoritesResponse.data));
         }())
     }, [])
 
