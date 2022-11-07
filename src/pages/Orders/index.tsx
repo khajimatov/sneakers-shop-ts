@@ -37,11 +37,13 @@ const Orders: React.FC = () => {
 
     const renderItems = () => {
         return orders.length > 0 ? orders.map((item: Order) =>
-            <>
+            <div className={styles.order}>
                 <h1>{item.index}</h1>
                 <hr />
-                {item.items.map(card => <Card key={card.id} id={card.id} title={card.title} price={card.price} imageURL={card.imageURL} />)}
-            </>
+                <div className={styles.orderItems}>
+                    {item.items.map(card => <Card key={card.id} id={card.id} title={card.title} price={card.price} imageURL={card.imageURL} />)}
+                </div>
+            </div>
         ) : <Empty title='Favorites are empty' />
     }
     return (

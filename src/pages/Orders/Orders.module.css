@@ -15,3 +15,16 @@
     row-gap: 30px;
     flex-wrap: wrap;
 }
+
+.order {
+    width: 100%;
+}
+
+.order h1 {
+    margin: 0;
+}
+
+.orderItems {
+    display: flex;
+    flex-wrap: wrap;
+}
