@@ -47,3 +47,10 @@ export const postToFavorites =
             await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/favorites', thisCard);
             dispatch(addToFavorites(thisCard));
         }
+export const deleteFromFavorites =
+    (thisCard: Item): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
+        async dispatch => {
+            const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites?id=${thisCard.id}`);
+            await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites/${data[0].index}`);
+            dispatch(removeFromFavorites(thisCard));
+        }

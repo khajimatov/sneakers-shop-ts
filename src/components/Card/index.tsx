@@ -1,10 +1,9 @@
 import React from 'react';
-import axios from 'axios';
 
 import styles from './Card.module.css';
 
 import Button from '../Button';
-import { postToFavorites, removeFromFavorites } from '../../store/actions';
+import { deleteFromFavorites, postToFavorites } from '../../store/actions';
 
 import { RootState } from '../../index';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -34,9 +33,7 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
 
         try {
             if (isLiked(thisCard)) {
-                const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites?id=${thisCard.id}`);
-                await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites/${data[0].index}`);
-                dispatch(removeFromFavorites(thisCard));
+                dispatch(deleteFromFavorites(thisCard));
             } else {
                 dispatch(postToFavorites(thisCard));
                 favoriteClickSound!.currentTime = 0;
