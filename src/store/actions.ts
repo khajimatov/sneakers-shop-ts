@@ -34,6 +34,13 @@ export const postToCart =
             await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/cart', thisCard);
             dispatch(addToCart(thisCard));
         }
+export const deleteFromCart =
+    (thisCard: Item): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
+        async dispatch => {
+            const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/cart?id=${thisCard.id}`);
+            await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/cart/${data[0].index}`);
+            dispatch(removeFromCart(thisCard));
+        }
 export const postToFavorites =
     (thisCard: Item): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
         async dispatch => {

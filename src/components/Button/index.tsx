@@ -1,8 +1,7 @@
 import React from 'react'
-import axios from 'axios';
 import styles from './Button.module.css';
 
-import { postToCart, removeFromCart } from '../../store/actions';
+import { deleteFromCart, postToCart } from '../../store/actions';
 
 import { RootState } from '../../index';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -32,9 +31,7 @@ const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
 
         try {
             if (isAdded(thisCard)) {
-                const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/cart?id=${thisCard.id}`);
-                await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/cart/${data[0].index}`);
-                dispatch(removeFromCart(thisCard));
+                dispatch(deleteFromCart(thisCard));
             } else {
                 dispatch(postToCart(thisCard));
             }
