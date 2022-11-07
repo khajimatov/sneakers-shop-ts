@@ -23,8 +23,8 @@ This project is a successor of one of my previos projects - [Sneakers Shop][Snea
 - [ ] Redirect after successful order
 - [ ] Redux Slices
 - [x] Redux Toolkit
-- [ ] Middleware
-- [ ] Redux thunk
+- [x] Middleware
+- [x] Redux thunk
 - [ ] Redux Saga
 - [ ] Radix UI
 - [ ] Deployment
