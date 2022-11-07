@@ -15,8 +15,12 @@ const OrderContainer: React.FC<OrderContainerProps> = ({ item }) => {
             <div className={styles.orderHeader}>
                 <h1>#{item.index}</h1>
                 <div className={styles.orderTags}>
-                    {<Tag text={item.buyer} />}
-                    {<Tag text={item.orderPrice.toString()} />}
+                    {<Tag text={'Buyer: ' + item.buyer} />}
+                    {<Tag text={'Order Cost: $' + item.orderPrice.toString() + ' USD'} />}
+                    {
+                        <Tag text={'Date: ' + new Date(item.date).toLocaleDateString()} />
+                    }
+                    {<Tag text={'Address: ' + item.address.city + ', ' + item.address.street + ', ' + item.address.home} />}
                 </div>
             </div>
             <h4>Purchased sneakers:</h4>

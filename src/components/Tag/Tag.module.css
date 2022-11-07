@@ -1,8 +1,11 @@
 .tag {
-    padding: 5px;
-    border: var(--gray-color);
+    padding: 5px 12px;
+    border: 1px solid var(--gray-color);
+    border-radius: 20px;
 }
 
 .tag:hover {
-    background-color: var(--accent-color);
+    background-color: #3B66DB;
+    border-color: #3B66DB;
+    color: #ffffff;
 }
