@@ -1,5 +1,5 @@
 import { SET_ITEMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART } from "./actionTypes";
-import { Order, IState, Action } from "../types";
+import { IState, Action } from "../types";
 const initialState: IState = {
     items: [],
     cart: [],
@@ -22,9 +22,7 @@ const reducer = (state = initialState, action: Action) => {
         case SET_ORDERS:
             return { ...state, orders: action.orders }
         case ADD_TO_ORDERS:
-            let newIndex: string = state.orders.length.toString();
-            let newOrder: Order = { "index": newIndex, "items": action.items, "buyer": "John", "date": 122, "orderPrice": 4200, "address": { "city": "Almaty", "street": "Abay", "home": "2B" } };
-            return { ...state, orders: [...state.orders, newOrder] }
+            return { ...state, orders: [...state.orders, action.order] }
         case REMOVE_FROM_CART:
             return { ...state, cart: state.cart.filter(obj => obj.id !== action.item!.id) }
         case REMOVE_FROM_FAVORITES:

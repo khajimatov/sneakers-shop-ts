@@ -21,7 +21,8 @@ export interface Action {
     type: string,
     item: Item,
     items: Item[],
-    orders: Order[]
+    orders: Order[],
+    order: Order
 }
 
 export interface IState {

@@ -35,7 +35,7 @@ const Cart: React.FC = () => {
                 <h1 className={styles.heading}>Cart</h1>
                 <div className={styles.totalBlock}>
                     <div><b>Total: </b>${cart.length > 0 ? cart.map(o => o.price).reduce((a, c) => { return a + c }) : 0} USD</div>
-                    <OrderButton />
+                    <OrderButton items={cart} />
                 </div>
             </div>
             <div className={styles.container}>

@@ -23,8 +23,8 @@ export const addToFavorites = (value: Item) => {
 export const setOrders = (value: Order[]) => {
     return { type: SET_ORDERS, orders: value };
 }
-export const addToOrders = (value: Item[]) => {
-    return { type: ADD_TO_ORDERS, items: value };
+export const addToOrders = (value: Order) => {
+    return { type: ADD_TO_ORDERS, order: value };
 }
 export const removeFromCart = (value: Item) => {
     return { type: REMOVE_FROM_CART, item: value };
@@ -58,4 +58,12 @@ export const deleteFromFavorites =
             const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites?id=${thisCard.id}`);
             await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites/${data[0].index}`);
             dispatch(removeFromFavorites(thisCard));
+        }
+export const postToOrders =
+    (items: Item[]): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
+        async dispatch => {
+            let newIndex: number = 1;
+            let newOrder: Order = { "index": newIndex.toString(), "items": items, "buyer": "John", "date": 1596629880000, "orderPrice": 4200, "address": { "city": "Almaty", "street": "Abay", "home": "2B" } };
+            await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/orders', newOrder);
+            dispatch(addToOrders(newOrder));
         }
