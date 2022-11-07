@@ -1,4 +1,4 @@
-import { SET_ITEMS, ADD_TO_CART, ADD_TO_FAVORITES, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES } from "./actionTypes";
+import { SET_ITEMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES } from "./actionTypes";
 import { ThunkAction } from '@reduxjs/toolkit';
 import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
@@ -17,6 +17,9 @@ export const setItems = (value: Item[]) => {
 }
 export const addToCart = (value: Item) => {
     return { type: ADD_TO_CART, item: value };
+}
+export const setFavorites = (value: Item[]) => {
+    return { type: SET_FAVORITES, items: value };
 }
 export const addToFavorites = (value: Item) => {
     return { type: ADD_TO_FAVORITES, item: value };
