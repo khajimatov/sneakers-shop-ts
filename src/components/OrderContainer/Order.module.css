@@ -1,10 +1,16 @@
-
 .orderContainer {
+    margin-top: 15px;
     width: 100%;
 }
 
 .orderContainer h1 {
     margin: 0;
+}
+
+.orderHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .orderItems {

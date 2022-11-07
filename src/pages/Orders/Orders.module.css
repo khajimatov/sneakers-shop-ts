@@ -10,8 +10,4 @@
 
 .container {
     display: flex;
-    margin-top: 40px;
-    column-gap: 60px;
-    row-gap: 30px;
-    flex-wrap: wrap;
 }
