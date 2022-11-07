@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import styles from './Orders.module.css';
 
 import Empty from '../../components/Empty';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { RootState } from '../..';
+import axios from 'axios';
+import Card from '../../components/Card';
+import { setOrders } from '../../store/actions';
 
 const Orders: React.FC = () => {
+
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        (async function fetchItems() {
+            const favoritesResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/orders');
+            dispatch(setOrders(favoritesResponse.data));
+        }())
+    }, [])
+
+    const orders = useAppSelector((state: RootState) => state.orders);
+
+    const renderItems = () => {
+        return orders.length > 0 ? orders.map(item => <Card key={item.id} id={item.id} title={item.title} price={item.price} imageURL={item.imageURL} />) : <Empty title='Favorites are empty' />
+    }
     return (
         <div className={styles.orders}>
             <div className={styles.headingContainer}>
                 <h1 className={styles.heading}>Orders</h1>
             </div>
             <div className={styles.container}>
-                {/* {orderedItems.length > 0 ? orderedItems.map(item => <Card key={item.id} id={item.id} title={item.title} price={item.price} imageURL={item.imageURL} />) : <Empty title='Orders are empty' />} */}
-                {<Empty title="Orders are empty" />}
+                {renderItems()}
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import { SET_ITEMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART } from "./actionTypes";
+import { SET_ITEMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART } from "./actionTypes";
 
 interface Item {
     id: string,
@@ -39,6 +39,8 @@ const reducer = (state = initialState, action: Action) => {
             return { ...state, favorites: action.items }
         case ADD_TO_FAVORITES:
             return { ...state, favorites: [...state.favorites, action.item] }
+        case SET_ORDERS:
+            return { ...state, orders: action.items }
         case ADD_TO_ORDERS:
             return { ...state, orders: [...state.favorites, action.item] }
         case REMOVE_FROM_CART:
