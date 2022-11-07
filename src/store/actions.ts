@@ -1,4 +1,4 @@
-import { ADD_TO_CART, ADD_TO_FAVORITES, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES } from "./actionTypes";
+import { SET_ITEMS, ADD_TO_CART, ADD_TO_FAVORITES, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES } from "./actionTypes";
 import { ThunkAction } from '@reduxjs/toolkit';
 import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
@@ -12,6 +12,9 @@ interface Item {
     imageURL: string
 }
 
+export const setItems = (value: Item[]) => {
+    return { type: SET_ITEMS, items: value };
+}
 export const addToCart = (value: Item) => {
     return { type: ADD_TO_CART, item: value };
 }

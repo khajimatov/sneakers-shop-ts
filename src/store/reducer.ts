@@ -1,4 +1,4 @@
-import { ADD_TO_CART, ADD_TO_FAVORITES, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES } from "./actionTypes";
+import { SET_ITEMS, ADD_TO_CART, ADD_TO_FAVORITES, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES } from "./actionTypes";
 
 interface Item {
     id: string,
@@ -9,7 +9,8 @@ interface Item {
 
 interface Action {
     type: string,
-    item: Item
+    item?: Item,
+    items?: Item[]
 }
 
 interface IState {
@@ -28,6 +29,8 @@ const initialState: IState = {
 
 const reducer = (state = initialState, action: Action) => {
     switch (action.type) {
+        case SET_ITEMS:
+            return { ...state, items: action.items }
         case ADD_TO_CART:
             return { ...state, cart: [...state.cart, action.item] }
         case ADD_TO_FAVORITES:
@@ -35,9 +38,9 @@ const reducer = (state = initialState, action: Action) => {
         case ADD_TO_ORDERS:
             return { ...state, orders: [...state.favorites, action.item] }
         case REMOVE_FROM_CART:
-            return { ...state, cart: state.cart.filter(obj => obj.id !== action.item.id) }
+            return { ...state, cart: state.cart.filter(obj => obj.id !== action.item!.id) }
         case REMOVE_FROM_FAVORITES:
-            return { ...state, favorites: state.favorites.filter(obj => obj.id !== action.item.id) }
+            return { ...state, favorites: state.favorites.filter(obj => obj.id !== action.item!.id) }
         default:
             return state;
     }
