@@ -16,8 +16,8 @@ const Cart: React.FC = () => {
 
     useEffect(() => {
         (async function fetchItems() {
-            const favoritesResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/favorites');
-            dispatch(setCart(favoritesResponse.data));
+            const cartResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/cart');
+            dispatch(setCart(cartResponse.data));
         }())
     }, [])
 
