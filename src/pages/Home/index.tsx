@@ -9,17 +9,9 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { setItems } from '../../store/actions';
 import { RootState } from '../..';
 
-interface Item {
-    id: string,
-    title: string,
-    price: number,
-    imageURL: string
-}
-
 const Home: React.FC = () => {
 
     const dispatch = useAppDispatch();
-    let items: Item[];
 
     useEffect(() => {
         (async function fetchItems() {
@@ -28,7 +20,7 @@ const Home: React.FC = () => {
         }())
     }, [])
 
-    items = useAppSelector((state: RootState) => state.items);
+    const items = useAppSelector((state: RootState) => state.items);
 
     const [searchValue, setSearchValue] = useState('');
 
