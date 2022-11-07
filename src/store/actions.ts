@@ -2,19 +2,8 @@ import { SET_ITEMS, SET_CART, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_
 import { ThunkAction } from '@reduxjs/toolkit';
 import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
+import { Item, Order } from '../types';
 import axios from "axios";
-
-
-interface Item {
-    id: string,
-    title: string,
-    price: number,
-    imageURL: string
-}
-interface Order {
-    index: string,
-    items: Item[]
-}
 
 export const setItems = (value: Item[]) => {
     return { type: SET_ITEMS, items: value };

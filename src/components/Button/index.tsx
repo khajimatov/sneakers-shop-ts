@@ -6,12 +6,7 @@ import { deleteFromCart, postToCart } from '../../store/actions';
 import { RootState } from '../../index';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
-interface Item {
-    id: string,
-    title: string,
-    price: number,
-    imageURL: string
-}
+import { Item } from '../../types';
 
 interface ButtonProps {
     thisCard: Item,

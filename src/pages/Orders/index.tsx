@@ -8,19 +8,7 @@ import { RootState } from '../..';
 import axios from 'axios';
 import Card from '../../components/Card';
 import { setOrders } from '../../store/actions';
-
-
-interface Item {
-    id: string,
-    title: string,
-    price: number,
-    imageURL: string
-}
-interface Order {
-    index: string,
-    items: Item[]
-}
-
+import { Order } from '../../types';
 
 const Orders: React.FC = () => {
 

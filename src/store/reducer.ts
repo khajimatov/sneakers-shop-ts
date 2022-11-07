@@ -1,30 +1,5 @@
 import { SET_ITEMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART } from "./actionTypes";
-
-interface Item {
-    id: string,
-    title: string,
-    price: number,
-    imageURL: string
-}
-
-interface Action {
-    type: string,
-    item: Item,
-    items: Item[],
-    orders: Order[]
-}
-
-interface Order {
-    index: string,
-    items: Item[]
-}
-interface IState {
-    items: Item[],
-    cart: Item[],
-    favorites: Item[],
-    orders: Order[]
-}
-
+import { Order, IState, Action } from "../types";
 const initialState: IState = {
     items: [],
     cart: [],
