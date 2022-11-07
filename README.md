@@ -29,6 +29,7 @@ This project is a successor of one of my previos projects - [Sneakers Shop][Snea
 - [ ] Radix UI
 - [ ] Deployment
 - [ ] Jest
+- [ ] SCSS
 
 [^1]: An open-source UI component library for building high-quality, accessible design systems and web apps. https://www.radix-ui.com
 
