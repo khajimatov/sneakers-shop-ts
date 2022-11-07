@@ -1,6 +1,9 @@
 .orderContainer:first-child {
-    margin-top: 15px;
-    width: 100%;
+    margin-top: 25px;
+}
+
+.orderContainer:last-child hr {
+    display: none;
 }
 
 .orderContainer h1 {

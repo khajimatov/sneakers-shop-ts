@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Order.module.css';
+import styles from './OrderContainer.module.css';
 
 import { Order } from '../../types';
 import OrderCard from '../OrderCard';
@@ -27,6 +27,9 @@ const OrderContainer: React.FC<OrderContainerProps> = ({ item }) => {
             <div className={styles.orderItems}>
                 {item.items.map(card => <OrderCard key={card.id} title={card.title} price={card.price} imageURL={card.imageURL} />)}
             </div>
+            <br />
+            <hr />
+            <br />
         </div>
     )
 }
