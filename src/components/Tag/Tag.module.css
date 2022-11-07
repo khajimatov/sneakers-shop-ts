@@ -2,3 +2,7 @@
     padding: 5px;
     border: var(--gray-color);
 }
+
+.tag:hover {
+    background-color: var(--accent-color);
+}

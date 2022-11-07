@@ -4,11 +4,19 @@ export interface Item {
     price: number,
     imageURL: string
 }
+interface Address {
+    city: string,
+    street: string,
+    home: string
+}
 export interface Order {
     index: string,
+    buyer: string,
+    date: number,
+    address: Address,
+    orderPrice: number,
     items: Item[]
 }
-
 export interface Action {
     type: string,
     item: Item,

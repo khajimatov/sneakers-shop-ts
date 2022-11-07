@@ -3,6 +3,7 @@ import styles from './Order.module.css';
 
 import { Order } from '../../types';
 import OrderCard from '../OrderCard';
+import Tag from '../Tag';
 
 interface OrderContainerProps {
     item: Order
@@ -14,7 +15,8 @@ const OrderContainer: React.FC<OrderContainerProps> = ({ item }) => {
             <div className={styles.orderHeader}>
                 <h1>#{item.index}</h1>
                 <div className={styles.orderTags}>
-                    
+                    {<Tag text={item.buyer} />}
+                    {<Tag text={item.orderPrice.toString()} />}
                 </div>
             </div>
             <h4>Purchased sneakers:</h4>

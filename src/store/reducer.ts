@@ -23,7 +23,7 @@ const reducer = (state = initialState, action: Action) => {
             return { ...state, orders: action.orders }
         case ADD_TO_ORDERS:
             let newIndex: string = state.orders.length.toString();
-            let newOrder: Order = { "index": newIndex, "items": action.items };
+            let newOrder: Order = { "index": newIndex, "items": action.items, "buyer": "John", "date": 122, "orderPrice": 4200, "address": { "city": "Almaty", "street": "Abay", "home": "2B" } };
             return { ...state, orders: [...state.orders, newOrder] }
         case REMOVE_FROM_CART:
             return { ...state, cart: state.cart.filter(obj => obj.id !== action.item!.id) }

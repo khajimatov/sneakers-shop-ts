@@ -25,7 +25,7 @@ const Orders: React.FC = () => {
 
     const renderItems = () => {
         return orders.length > 0 ? orders.map((item: Order) =>
-            <OrderContainer key={item.index} item={item} />
+            <OrderContainer key={item.index} item={item}/>
         ) : <Empty title='Favorites are empty' />
     }
     return (
