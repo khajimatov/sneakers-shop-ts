@@ -1,0 +1,4 @@
+.orderCard {
+    display: flex;
+    border: 1px solid var(--gray-color);
+}
