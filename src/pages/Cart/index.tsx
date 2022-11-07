@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Cart.module.css';
 
 import { RootState } from '../../index';
@@ -6,9 +6,20 @@ import { RootState } from '../../index';
 import Card from '../../components/Card';
 import Empty from '../../components/Empty';
 import OrderButton from '../../components/OrderButton';
-import { useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import axios from 'axios';
+import { setCart } from '../../store/actions';
 
 const Cart: React.FC = () => {
+
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        (async function fetchItems() {
+            const favoritesResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/favorites');
+            dispatch(setCart(favoritesResponse.data));
+        }())
+    }, [])
 
     const cart = useAppSelector((state: RootState) => state.cart);
 
