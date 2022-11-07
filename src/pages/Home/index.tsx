@@ -20,7 +20,7 @@ const Home: React.FC = () => {
             dispatch(setCart(cartResponse.data));
             dispatch(setFavorites(favoritesResponse.data));
         }())
-    }, [])
+    }, [dispatch])
 
     const items = useAppSelector((state: RootState) => state.items);
 

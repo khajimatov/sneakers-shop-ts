@@ -31,7 +31,7 @@ const Orders: React.FC = () => {
             const ordersResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/orders');
             dispatch(setOrders(ordersResponse.data));
         }())
-    }, [])
+    }, [dispatch])
 
     const orders = useAppSelector((state: RootState) => state.orders);
 

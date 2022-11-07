@@ -19,7 +19,7 @@ const Cart: React.FC = () => {
             const cartResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/cart');
             dispatch(setCart(cartResponse.data));
         }())
-    }, [])
+    }, [dispatch])
 
     const cart = useAppSelector((state: RootState) => state.cart);
 

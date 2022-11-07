@@ -18,7 +18,7 @@ const Favorites: React.FC = () => {
             const favoritesResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/favorites');
             dispatch(setFavorites(favoritesResponse.data));
         }())
-    }, [])
+    }, [dispatch])
 
     const favorites = useAppSelector((state: RootState) => state.favorites);
 
