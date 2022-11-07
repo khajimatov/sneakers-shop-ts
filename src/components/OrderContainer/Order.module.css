@@ -1,0 +1,13 @@
+
+.orderContainer {
+    width: 100%;
+}
+
+.orderContainer h1 {
+    margin: 0;
+}
+
+.orderItems {
+    display: flex;
+    flex-wrap: wrap;
+}

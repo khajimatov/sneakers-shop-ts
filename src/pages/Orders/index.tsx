@@ -6,9 +6,9 @@ import Empty from '../../components/Empty';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { RootState } from '../..';
 import axios from 'axios';
-import Card from '../../components/Card';
 import { setOrders } from '../../store/actions';
 import { Order } from '../../types';
+import OrderContainer from '../../components/OrderContainer';
 
 const Orders: React.FC = () => {
 
@@ -25,13 +25,7 @@ const Orders: React.FC = () => {
 
     const renderItems = () => {
         return orders.length > 0 ? orders.map((item: Order) =>
-            <div className={styles.order}>
-                <h1>{item.index}</h1>
-                <hr />
-                <div className={styles.orderItems}>
-                    {item.items.map(card => <Card key={card.id} id={card.id} title={card.title} price={card.price} imageURL={card.imageURL} />)}
-                </div>
-            </div>
+            <OrderContainer key={item.index} item={item} />
         ) : <Empty title='Favorites are empty' />
     }
     return (
