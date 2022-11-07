@@ -4,6 +4,10 @@ import styles from './Home.module.css';
 
 import Card from '../../components/Card';
 import Empty from '../../components/Empty';
+import axios from 'axios';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { setItems } from '../../store/actions';
+import { RootState } from '../..';
 
 interface Item {
     id: string,
@@ -14,42 +18,17 @@ interface Item {
 
 const Home: React.FC = () => {
 
-    const [items, setItems] = useState<Item[]>([]);
+    const dispatch = useAppDispatch();
+    let items: Item[];
 
     useEffect(() => {
-        return () => {
-            setItems([{
-                "id": "1",
-                "title": "Nike Blazer Mid Suede",
-                "price": 250,
-                "imageURL": "/img/sneakers/1.jpg"
-            },
-            {
-                "id": "2",
-                "title": "Jordan Air Jordan 11",
-                "price": 149,
-                "imageURL": "/img/sneakers/2.jpg"
-            },
-            {
-                "id": "3",
-                "title": "Nike Force Yezzy",
-                "price": 149,
-                "imageURL": "/img/sneakers/3.jpg"
-            },
-            {
-                "id": "4",
-                "title": "Adidas X Gen",
-                "price": 149,
-                "imageURL": "/img/sneakers/4.jpg"
-            },
-            {
-                "id": "5",
-                "title": "Puma II Exclusive",
-                "price": 149,
-                "imageURL": "/img/sneakers/3.jpg"
-            }]);
-        }
+        (async function fetchItems() {
+            const itemsResponse = await axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/items');
+            dispatch(setItems(itemsResponse.data));
+        }())
     }, [])
+
+    items = useAppSelector((state: RootState) => state.items);
 
     const [searchValue, setSearchValue] = useState('');
 
