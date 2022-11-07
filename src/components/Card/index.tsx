@@ -4,7 +4,7 @@ import axios from 'axios';
 import styles from './Card.module.css';
 
 import Button from '../Button';
-import { addToFavorites, removeFromFavorites } from '../../store/actions';
+import { postToFavorites, removeFromFavorites } from '../../store/actions';
 
 import { RootState } from '../../index';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -38,8 +38,7 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
                 await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites/${data[0].index}`);
                 dispatch(removeFromFavorites(thisCard));
             } else {
-                await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/favorites', thisCard);
-                dispatch(addToFavorites(thisCard));
+                dispatch(postToFavorites(thisCard));
                 favoriteClickSound!.currentTime = 0;
                 favoriteClickSound?.play();
             }

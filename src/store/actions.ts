@@ -34,3 +34,9 @@ export const postToCart =
             await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/cart', thisCard);
             dispatch(addToCart(thisCard));
         }
+export const postToFavorites =
+    (thisCard: Item): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
+        async dispatch => {
+            await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/favorites', thisCard);
+            dispatch(addToFavorites(thisCard));
+        }
