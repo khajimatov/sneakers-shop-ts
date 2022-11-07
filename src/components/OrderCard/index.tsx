@@ -10,10 +10,12 @@ interface OrderCardProps {
 const OrderCard: React.FC<OrderCardProps> = ({ title, price, imageURL }) => {
     return (
         <div className={styles.orderCard}>
-            <img width={100} height={100} src={imageURL} alt={'Image of ' + title} />
-            <h4>{title}</h4>
-            <small>PRICE:</small>
-            <b>{price}</b>
+            <img width={80} height={80} src={imageURL} alt={'Image of ' + title} />
+            <div className={styles.text}>
+                <h4>{title}</h4>
+                <small>PRICE: </small>
+                <small>${price} USD</small>
+            </div>
         </div>
     )
 }

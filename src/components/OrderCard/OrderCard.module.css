@@ -1,4 +1,27 @@
 .orderCard {
     display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 18px;
     border: 1px solid var(--gray-color);
+    gap: 20px;
+    width: 240px;
+}
+
+.orderCard:hover {
+    border-color: #000000;
+}
+
+.orderCard h4 {
+    margin: 0;
+    width: 140px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.orderCard img {
+    object-fit: scale-down;
+    pointer-events: none;
+    user-select: none;
 }
