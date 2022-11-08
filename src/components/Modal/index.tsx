@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../..';
-import { closeModal, postToOrders } from '../../store/actions';
+import { postToOrders } from '../../store/actions';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { Address, Order } from '../../types';
 import styles from './Modal.module.css';
 
-const Modal: React.FC = () => {
+interface ModalProps {
+    closeModal: Function
+}
+
+const Modal: React.FC<ModalProps> = ({ closeModal }) => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
@@ -41,12 +45,11 @@ const Modal: React.FC = () => {
         const newOrder: Order = { "index": "1", "items": items, "buyer": buyer, "date": date, "orderPrice": orderPrice, "address": address };
 
         await dispatch(postToOrders(newOrder));
-        dispatch(closeModal());
         setIsSubmitted(false);
         navigate('/');
     }
     const onClickCancel = () => {
-        dispatch(closeModal());
+        closeModal();
     }
     return (
         <div className={styles.modal}>

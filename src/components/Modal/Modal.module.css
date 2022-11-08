@@ -1,13 +1,14 @@
 .modal {
     z-index: 1;
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
 }
 
 .modalWindow {
-    margin: 70px auto;
+    margin: 100px auto;
     border-radius: 26px;
     border: 1px solid var(--gray-color);
     width: 500px;

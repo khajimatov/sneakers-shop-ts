@@ -1,6 +1,4 @@
 export const SET_ORDER_PRICE = "SET_ORDER_PRICE";
-export const OPEN_MODAL = "OPEN_MODAL";
-export const CLOSE_MODAL = "CLOSE_MODAL";
 export const SET_ITEMS = "SET_ITEMS";
 export const SET_CART = "SET_CART";
 export const ADD_TO_CART = "ADD_TO_CART";

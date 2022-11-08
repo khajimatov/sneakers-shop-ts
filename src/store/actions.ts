@@ -1,18 +1,12 @@
-import { OPEN_MODAL, CLOSE_MODAL, SET_ITEMS, SET_CART, SET_FAVORITES, ADD_TO_CART, CLEAR_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_ORDER_PRICE } from "./actionTypes";
+import { SET_ITEMS, SET_CART, SET_FAVORITES, ADD_TO_CART, CLEAR_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_ORDER_PRICE } from "./actionTypes";
 import { ThunkAction } from '@reduxjs/toolkit';
 import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
 import { Item, Order } from '../types';
 import axios from "axios";
 
-export const openModal = () => {
-    return { type: OPEN_MODAL };
-}
 export const setOrderPrice = (value: number) => {
     return { type: SET_ORDER_PRICE, orderPrice: value };
-}
-export const closeModal = () => {
-    return { type: CLOSE_MODAL };
 }
 export const setItems = (value: Item[]) => {
     return { type: SET_ITEMS, items: value };
