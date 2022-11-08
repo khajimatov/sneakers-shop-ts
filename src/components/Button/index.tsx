@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Button.module.css';
 
 import { deleteFromCart, postToCart } from '../../store/actions';
@@ -15,6 +15,8 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
 
+    const [disable, setDisable] = useState(false);
+
     const cart = useAppSelector((state: RootState) => state.cart);
     const dispatch = useAppDispatch();
 
@@ -24,18 +26,20 @@ const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
 
     const onBuyClick = async (e: React.MouseEvent) => {
 
+        setDisable(true);
         try {
             if (isAdded(thisCard)) {
-                dispatch(deleteFromCart(thisCard));
+                await dispatch(deleteFromCart(thisCard));
             } else {
-                dispatch(postToCart(thisCard));
+                await dispatch(postToCart(thisCard));
             }
         } catch (error) {
             alert(error);
         }
+        setDisable(false);
     }
     return (
-        <button onClick={onBuyClick} className={styles.buyButton}>{isAdded(thisCard) ? "REMOVE" : text}</button>
+        <button disabled={disable} onClick={onBuyClick} className={styles.buyButton}>{isAdded(thisCard) ? "REMOVE" : text}</button>
     )
 }
 
