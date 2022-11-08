@@ -42,6 +42,9 @@ const Modal: React.FC = () => {
         dispatch(closeModal());
         navigate('/');
     }
+    const onClickCancel = () => {
+        dispatch(closeModal());
+    }
     return (
         <div className={styles.modal}>
             <div className={styles.modalWindow}>
@@ -59,7 +62,8 @@ const Modal: React.FC = () => {
                     <label htmlFor="home">Home Name</label>
                     <input onChange={handleHome} type="text" name="home" id="home" />
 
-                    <button type='button' onClick={onClickSubmit} >CLOSE</button>
+                    <button type='button' onClick={onClickSubmit} >SUBMIT</button>
+                    <button type='button' onClick={onClickCancel} >CANCEL</button>
                 </form>
 
             </div>
