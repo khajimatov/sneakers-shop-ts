@@ -1,17 +1,19 @@
 import React from 'react'
-import { openModal } from '../../store/actions';
+import { openModal, setOrderPrice } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
 import { Item } from '../../types';
 import styles from './OrderButton.module.css';
 
 interface OrderButtonProps {
-    items: Item[]
+    items: Item[],
+    orderPrice: number
 }
-const OrderButton: React.FC<OrderButtonProps> = ({ items }) => {
+const OrderButton: React.FC<OrderButtonProps> = ({ items, orderPrice }) => {
 
     const dispatch = useAppDispatch();
 
     const onClickOrder = async () => {
+        dispatch(setOrderPrice(orderPrice));
         dispatch(openModal());
     }
 
