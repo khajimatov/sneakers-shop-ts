@@ -17,6 +17,7 @@ const Modal: React.FC = () => {
     const [city, setCity] = useState('');
     const [street, setStreet] = useState('');
     const [home, setHome] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
 
     const handleBuyer = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +34,7 @@ const Modal: React.FC = () => {
     }
 
     const onClickSubmit = async () => {
+        setIsSubmitted(true);
         const date = Date.now();
 
         const address: Address = { "city": city, "street": street, "home": home };
@@ -40,6 +42,7 @@ const Modal: React.FC = () => {
 
         await dispatch(postToOrders(newOrder));
         dispatch(closeModal());
+        setIsSubmitted(false);
         navigate('/');
     }
     const onClickCancel = () => {
@@ -48,23 +51,25 @@ const Modal: React.FC = () => {
     return (
         <div className={styles.modal}>
             <div className={styles.modalWindow}>
+                {isSubmitted ? <img className={styles.loader} width={200} height={200} src="/img/loader.gif" alt="Loader GIF" /> :
+                    <form name='orderForm'>
+                        <label htmlFor="buyer">Buyer Name</label>
+                        <input onChange={handleBuyer} type="text" name="buyer" id="buyer" />
 
-                <form name='orderForm'>
-                    <label htmlFor="buyer">Buyer Name</label>
-                    <input onChange={handleBuyer} type="text" name="buyer" id="buyer" />
+                        <label htmlFor="city">City Name</label>
+                        <input onChange={handleCity} type="text" name="city" id="city" />
 
-                    <label htmlFor="city">City Name</label>
-                    <input onChange={handleCity} type="text" name="city" id="city" />
+                        <label htmlFor="street">Street Name</label>
+                        <input onChange={handleStreet} type="text" name="street" id="street" />
 
-                    <label htmlFor="street">Street Name</label>
-                    <input onChange={handleStreet} type="text" name="street" id="street" />
+                        <label htmlFor="home">Home Name</label>
+                        <input onChange={handleHome} type="text" name="home" id="home" />
 
-                    <label htmlFor="home">Home Name</label>
-                    <input onChange={handleHome} type="text" name="home" id="home" />
+                        <button type='button' onClick={onClickSubmit} >SUBMIT</button>
+                        <button type='button' onClick={onClickCancel} >CANCEL</button>
+                    </form>
+                }
 
-                    <button type='button' onClick={onClickSubmit} >SUBMIT</button>
-                    <button type='button' onClick={onClickCancel} >CANCEL</button>
-                </form>
 
             </div>
         </div>
