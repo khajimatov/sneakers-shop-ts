@@ -16,15 +16,9 @@ function App() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route path="" element={<Home />} />
-        <Route path="cart" element={<Suspense fallback={<div>Loading cart...</div>}>
-          <Cart />
-        </Suspense>} />
-        <Route path="favorites" element={<Suspense fallback={<div>Loading favorites...</div>}>
-          <Favorites />
-        </Suspense>} />
-        <Route path="orders" element={<Suspense fallback={<div>Loading orders...</div>}>
-          <Orders />
-        </Suspense>} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="favorites" element={<Favorites />} />
+        <Route path="orders" element={<Orders />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

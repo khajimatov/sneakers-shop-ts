@@ -13,6 +13,9 @@ import { setCart, setOrderPrice } from '../../store/actions';
 const Cart: React.FC = () => {
 
     const dispatch = useAppDispatch();
+    const cart = useAppSelector((state: RootState) => state.cart);
+    const orderPrice = cart.length > 0 ? cart.map(o => o.price).reduce((a, c) => { return a + c }) : 0;
+    dispatch(setOrderPrice(orderPrice));
 
     useEffect(() => {
         (async function fetchItems() {
@@ -21,16 +24,11 @@ const Cart: React.FC = () => {
         }())
     }, [dispatch])
 
-    const cart = useAppSelector((state: RootState) => state.cart);
-
     const renderItems = () => {
         return cart.length > 0 ? cart.map(item =>
             <Card key={item.id} id={item.id} title={item.title} price={item.price} imageURL={item.imageURL} />
         ) : <Empty title='Cart is empty' />
     }
-
-    const orderPrice = cart.length > 0 ? cart.map(o => o.price).reduce((a, c) => { return a + c }) : 0;
-    dispatch(setOrderPrice(orderPrice));
 
     return (
         <div className={styles.cart}>
@@ -38,7 +36,7 @@ const Cart: React.FC = () => {
                 <h1 className={styles.heading}>Cart</h1>
                 <div className={styles.totalBlock}>
                     <div><b>Total: </b>${orderPrice} USD</div>
-                    <OrderButton />
+                    <OrderButton items={cart} />
                 </div>
             </div>
             <div className={styles.container}>

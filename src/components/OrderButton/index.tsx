@@ -1,14 +1,15 @@
 import React from 'react'
-import { RootState } from '../..';
 import { openModal } from '../../store/actions';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch } from '../../store/hooks';
+import { Item } from '../../types';
 import styles from './OrderButton.module.css';
 
-
-const OrderButton: React.FC = () => {
+interface OrderButtonProps {
+    items: Item[]
+}
+const OrderButton: React.FC<OrderButtonProps> = ({ items }) => {
 
     const dispatch = useAppDispatch();
-    const items = useAppSelector((state: RootState) => state.cart);
 
     const onClickOrder = async () => {
         dispatch(openModal());
