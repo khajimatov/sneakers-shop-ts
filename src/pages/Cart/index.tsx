@@ -8,7 +8,7 @@ import Empty from '../../components/Empty';
 import OrderButton from '../../components/OrderButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import axios from 'axios';
-import { setCart } from '../../store/actions';
+import { setCart, setOrderPrice } from '../../store/actions';
 
 const Cart: React.FC = () => {
 
@@ -30,6 +30,7 @@ const Cart: React.FC = () => {
     }
 
     const orderPrice = cart.length > 0 ? cart.map(o => o.price).reduce((a, c) => { return a + c }) : 0;
+    dispatch(setOrderPrice(orderPrice));
 
     return (
         <div className={styles.cart}>
@@ -37,7 +38,7 @@ const Cart: React.FC = () => {
                 <h1 className={styles.heading}>Cart</h1>
                 <div className={styles.totalBlock}>
                     <div><b>Total: </b>${orderPrice} USD</div>
-                    <OrderButton orderPrice={orderPrice} items={cart} />
+                    <OrderButton />
                 </div>
             </div>
             <div className={styles.container}>

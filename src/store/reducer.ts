@@ -1,14 +1,22 @@
-import { SET_ITEMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART, CLEAR_CART } from "./actionTypes";
+import { OPEN_MODAL, CLOSE_MODAL, SET_ITEMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART, CLEAR_CART, SET_ORDER_PRICE } from "./actionTypes";
 import { IState, Action } from "../types";
 const initialState: IState = {
     items: [],
     cart: [],
     favorites: [],
-    orders: []
+    orders: [],
+    modal: false,
+    orderPrice: 0
 };
 
 const reducer = (state = initialState, action: Action) => {
     switch (action.type) {
+        case SET_ORDER_PRICE:
+            return { ...state, orderPrice: action.orderPrice }
+        case OPEN_MODAL:
+            return { ...state, modal: true }
+        case CLOSE_MODAL:
+            return { ...state, modal: false }
         case SET_ITEMS:
             return { ...state, items: action.items }
         case SET_CART:

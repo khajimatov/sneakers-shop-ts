@@ -22,12 +22,15 @@ export interface Action {
     item: Item,
     items: Item[],
     orders: Order[],
-    order: Order
+    order: Order,
+    orderPrice: number
 }
 
 export interface IState {
     items: Item[],
     cart: Item[],
     favorites: Item[],
-    orders: Order[]
+    orders: Order[],
+    modal: boolean,
+    orderPrice: number
 }
