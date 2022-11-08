@@ -51,7 +51,7 @@ const Modal: React.FC = () => {
     return (
         <div className={styles.modal}>
             <div className={styles.modalWindow}>
-                {isSubmitted ? <img className={styles.loader} width={200} height={200} src="/img/loader.gif" alt="Loader GIF" /> :
+                {isSubmitted ? <div className={styles.loader} ><img width={200} height={200} src="/img/loader.gif" alt="Loader GIF" /></div> :
                     <form name='orderForm'>
                         <label htmlFor="buyer">Buyer Name</label>
                         <input onChange={handleBuyer} type="text" name="buyer" id="buyer" />
