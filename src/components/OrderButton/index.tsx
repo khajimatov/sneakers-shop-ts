@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { clearCart, postToOrders } from '../../store/actions';
+import { postToOrders } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
 import { Item } from '../../types';
 import styles from './OrderButton.module.css';
