@@ -4,7 +4,7 @@ export interface Item {
     price: number,
     imageURL: string
 }
-interface Address {
+export interface Address {
     city: string,
     street: string,
     home: string

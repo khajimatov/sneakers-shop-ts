@@ -29,13 +29,15 @@ const Cart: React.FC = () => {
         ) : <Empty title='Cart is empty' />
     }
 
+    const orderPrice = cart.length > 0 ? cart.map(o => o.price).reduce((a, c) => { return a + c }) : 0;
+
     return (
         <div className={styles.cart}>
             <div className={styles.headingContainer}>
                 <h1 className={styles.heading}>Cart</h1>
                 <div className={styles.totalBlock}>
-                    <div><b>Total: </b>${cart.length > 0 ? cart.map(o => o.price).reduce((a, c) => { return a + c }) : 0} USD</div>
-                    <OrderButton items={cart} />
+                    <div><b>Total: </b>${orderPrice} USD</div>
+                    <OrderButton orderPrice={orderPrice} items={cart} />
                 </div>
             </div>
             <div className={styles.container}>

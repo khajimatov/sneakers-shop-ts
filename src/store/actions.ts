@@ -63,12 +63,10 @@ export const deleteFromFavorites =
             dispatch(removeFromFavorites(thisCard));
         }
 export const postToOrders =
-    (items: Item[]): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
+    (order: Order): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
         async dispatch => {
-            let newIndex: number = 1;
-            let newOrder: Order = { "index": newIndex.toString(), "items": items, "buyer": "John", "date": 1596629880000, "orderPrice": 4200, "address": { "city": "Almaty", "street": "Abay", "home": "2B" } };
-            await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/orders', newOrder);
-            dispatch(addToOrders(newOrder));
-            await (async function () { items.map(item => dispatch(deleteFromCart(item))) }());
+            await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/orders', order);
+            dispatch(addToOrders(order));
+            await (async function () { order.items.map(item => dispatch(deleteFromCart(item))) }());
             dispatch(clearCart());
         }

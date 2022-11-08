@@ -2,18 +2,26 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { postToOrders } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
-import { Item } from '../../types';
+import { Item, Order, Address } from '../../types';
 import styles from './OrderButton.module.css';
 
 interface OrderButtonProps {
     items: Item[]
+    orderPrice: number
 }
 
-const OrderButton: React.FC<OrderButtonProps> = ({ items }) => {
+const OrderButton: React.FC<OrderButtonProps> = ({ items, orderPrice }) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const onClickOrder = async () => {
-        await dispatch(postToOrders(items));
+        const buyer = prompt('Buyer name')!;
+        const date = Date.now()!;
+        const city = prompt('City')!;
+        const street = prompt('Street')!;
+        const home = prompt('Home')!;
+        const address: Address = { "city": city, "street": street, "home": home };
+        const newOrder: Order = { "index": "1", "items": items, "buyer": buyer, "date": date, "orderPrice": orderPrice, "address": address }
+        await dispatch(postToOrders(newOrder));
         navigate("/");
     }
 
