@@ -31,10 +31,3 @@ export interface IState {
     favorites: Item[],
     orders: Order[]
 }
-
-interface Response {
-    statusText: string
-}
-export interface RequestError {
-    response: Response | unknown
-}
