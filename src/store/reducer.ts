@@ -1,4 +1,4 @@
-import { SET_ITEMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART } from "./actionTypes";
+import { SET_ITEMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART, CLEAR_CART } from "./actionTypes";
 import { IState, Action } from "../types";
 const initialState: IState = {
     items: [],
@@ -15,6 +15,8 @@ const reducer = (state = initialState, action: Action) => {
             return { ...state, cart: action.items }
         case ADD_TO_CART:
             return { ...state, cart: [...state.cart, action.item] }
+        case CLEAR_CART:
+            return { ...state, cart: [] }
         case SET_FAVORITES:
             return { ...state, favorites: action.items }
         case ADD_TO_FAVORITES:

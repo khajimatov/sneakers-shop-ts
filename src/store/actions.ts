@@ -1,4 +1,4 @@
-import { SET_ITEMS, SET_CART, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES } from "./actionTypes";
+import { SET_ITEMS, SET_CART, SET_FAVORITES, ADD_TO_CART, CLEAR_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES } from "./actionTypes";
 import { ThunkAction } from '@reduxjs/toolkit';
 import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
@@ -13,6 +13,9 @@ export const setCart = (value: Item[]) => {
 }
 export const addToCart = (value: Item) => {
     return { type: ADD_TO_CART, item: value };
+}
+export const clearCart = () => {
+    return { type: CLEAR_CART };
 }
 export const setFavorites = (value: Item[]) => {
     return { type: SET_FAVORITES, items: value };
@@ -66,4 +69,6 @@ export const postToOrders =
             let newOrder: Order = { "index": newIndex.toString(), "items": items, "buyer": "John", "date": 1596629880000, "orderPrice": 4200, "address": { "city": "Almaty", "street": "Abay", "home": "2B" } };
             await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/orders', newOrder);
             dispatch(addToOrders(newOrder));
+            await (async function () { items.map(item => dispatch(deleteFromCart(item))) }());
+            dispatch(clearCart());
         }
