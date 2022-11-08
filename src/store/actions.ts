@@ -67,6 +67,7 @@ export const postToOrders =
         async dispatch => {
             await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/orders', order);
             dispatch(addToOrders(order));
-            await (async function () { order.items.map(item => dispatch(deleteFromCart(item))) }());
+            const promises = order.items.map(item => dispatch(deleteFromCart(item)));
+            await Promise.all(promises);
             dispatch(clearCart());
         }
