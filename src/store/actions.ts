@@ -2,8 +2,8 @@ import { SET_ITEMS, SET_CART, SET_FAVORITES, ADD_TO_CART, CLEAR_CART, ADD_TO_FAV
 import { ThunkAction } from '@reduxjs/toolkit';
 import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
-import { Item, Order } from '../types';
-import axios from "axios";
+import { Item, Order, RequestError } from '../types';
+import axios, { AxiosError } from "axios";
 
 export const setItems = (value: Item[]) => {
     return { type: SET_ITEMS, items: value };
@@ -39,35 +39,130 @@ export const removeFromFavorites = (value: Item) => {
 export const postToCart =
     (thisCard: Item): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
         async dispatch => {
-            await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/cart', thisCard);
-            dispatch(addToCart(thisCard));
+            try {
+                await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/cart', thisCard);
+                dispatch(addToCart(thisCard));
+            }
+            catch (error) {
+                if (error) {
+                    if (axios.isAxiosError(error)) {
+                        switch (error.response?.status) {
+                            case 429:
+                                console.log(error.response.statusText);
+                                break;
+                            default:
+                                console.log(error.response?.statusText)
+                                break;
+                        }
+                    }
+                    else {
+                        alert('Unexpected error: ' + error);
+                    }
+                }
+            }
         }
 export const deleteFromCart =
     (thisCard: Item): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
         async dispatch => {
-            const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/cart?id=${thisCard.id}`);
-            await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/cart/${data[0].index}`);
-            dispatch(removeFromCart(thisCard));
+            try {
+                const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/cart?id=${thisCard.id}`);
+                await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/cart/${data[0].index}`);
+                dispatch(removeFromCart(thisCard));
+            }
+            catch (error) {
+                if (error) {
+                    if (axios.isAxiosError(error)) {
+                        switch (error.response?.status) {
+                            case 429:
+                                console.log(error.response.statusText);
+                                break;
+                            default:
+                                console.log(error.response?.statusText)
+                                break;
+                        }
+                    }
+                    else {
+                        alert('Unexpected error: ' + error);
+                    }
+                }
+            }
         }
 export const postToFavorites =
     (thisCard: Item): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
         async dispatch => {
-            await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/favorites', thisCard);
-            dispatch(addToFavorites(thisCard));
+            try {
+                await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/favorites', thisCard);
+                dispatch(addToFavorites(thisCard));
+            }
+            catch (error) {
+                if (error) {
+                    if (axios.isAxiosError(error)) {
+                        switch (error.response?.status) {
+                            case 429:
+                                console.log(error.response.statusText);
+                                break;
+                            default:
+                                console.log(error.response?.statusText)
+                                break;
+                        }
+                    }
+                    else {
+                        alert('Unexpected error: ' + error);
+                    }
+                }
+            }
         }
 export const deleteFromFavorites =
     (thisCard: Item): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
         async dispatch => {
-            const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites?id=${thisCard.id}`);
-            await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites/${data[0].index}`);
-            dispatch(removeFromFavorites(thisCard));
+            try {
+                const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites?id=${thisCard.id}`);
+                await axios.delete(`https://611a826e5710ca00173a1a6e.mockapi.io/favorites/${data[0].index}`);
+                dispatch(removeFromFavorites(thisCard));
+            }
+            catch (error) {
+                if (error) {
+                    if (axios.isAxiosError(error)) {
+                        switch (error.response?.status) {
+                            case 429:
+                                console.log(error.response.statusText);
+                                break;
+                            default:
+                                console.log(error.response?.statusText)
+                                break;
+                        }
+                    }
+                    else {
+                        alert('Unexpected error: ' + error);
+                    }
+                }
+            }
         }
 export const postToOrders =
     (order: Order): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
         async dispatch => {
-            await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/orders', order);
-            dispatch(addToOrders(order));
-            const promises = order.items.map(item => dispatch(deleteFromCart(item)));
-            await Promise.all(promises);
-            dispatch(clearCart());
+            try {
+                await axios.post('https://611a826e5710ca00173a1a6e.mockapi.io/orders', order);
+                dispatch(addToOrders(order));
+                const promises = order.items.map(item => dispatch(deleteFromCart(item)));
+                await Promise.all(promises);
+                dispatch(clearCart());
+            }
+            catch (error) {
+                if (error) {
+                    if (axios.isAxiosError(error)) {
+                        switch (error.response?.status) {
+                            case 429:
+                                console.log(error.response.statusText);
+                                break;
+                            default:
+                                console.log(error.response?.statusText)
+                                break;
+                        }
+                    }
+                    else {
+                        alert('Unexpected error: ' + error);
+                    }
+                }
+            }
         }
