@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { postToOrders } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
 import { Item } from '../../types';
@@ -10,9 +11,10 @@ interface OrderButtonProps {
 
 const OrderButton: React.FC<OrderButtonProps> = ({ items }) => {
     const dispatch = useAppDispatch();
-
-    const onClickOrder = () => {
-        dispatch(postToOrders(items));
+    const navigate = useNavigate();
+    const onClickOrder = async () => {
+        await dispatch(postToOrders(items));
+        navigate("/");
     }
 
     return (
