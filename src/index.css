@@ -3,14 +3,10 @@
   --gray-color: #c2c2c2;
   --red: linear-gradient(180deg, #F28179 0%, #F20D00 110%);
 }
-html{
-  min-height: 100vh;
-}
 body {
   background-color: var(--accent-color);
   margin: 0;
   font-family: -apple-system, 'Space Grotesk';
-  min-height: 100%;
 }
 
 a:visited {
