@@ -17,16 +17,17 @@
     border-radius: 26px;
     border: 1px solid var(--gray-color);
     width: 400px;
-    height: 400px;
+    height: 350px;
     background-color: #ffffff;
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0 8px 20px var(--gray-color);
+    box-shadow: 0 8px 20px 3px #efefef;
 }
 
 .orderForm {
-    margin-top: 10px;
-    width: 220px;
+    margin-top: 25px;
+    width: 280px;
+    /* background-color: aquamarine; */
 }
 
 .orderForm li {
@@ -40,12 +41,16 @@
 
 }
 
+.orderForm li label {
+    margin-right: 10px;
+}
+
 .orderForm li {
     margin-bottom: 12px;
 }
 
 .orderForm li:last-child {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .orderForm li input {
@@ -58,9 +63,15 @@
 }
 
 .loader {
-    margin: 80px auto;
+    margin: auto;
     width: 200px;
     height: 200px;
+}
+
+.formButtons {
+    width: 220px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .submitButton {

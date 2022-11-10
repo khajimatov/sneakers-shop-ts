@@ -55,27 +55,30 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
         <div className={styles.modal}>
             <div className={styles.modalWindow}>
                 {isSubmitted ? <div className={styles.loader} ><img width={200} height={200} src="/img/loader.gif" alt="Loader GIF" /></div> :
-                    <form name='orderForm' className={styles.orderForm}>
+                    <form autoComplete="off" name='orderForm' className={styles.orderForm}>
                         <ul>
                             <li>
-                                <label htmlFor="buyer">Buyer Name:</label>
-                                <input onChange={handleBuyer} type="text" name="buyer" id="buyer" />
+                                <label htmlFor="buyer">Name:</label>
+                                <input autoComplete="off" onChange={handleBuyer} type="text" name="buyer" id="buyer" />
                             </li>
                             <li>
-                                <label htmlFor="city">City Name:</label>
-                                <input onChange={handleCity} type="text" name="city" id="city" />
+                                <label htmlFor="city">City:</label>
+                                <input autoComplete="off" onChange={handleCity} type="text" name="city" id="city" />
                             </li>
                             <li>
-                                <label htmlFor="street">Street Name:</label>
-                                <input onChange={handleStreet} type="text" name="street" id="street" />
+                                <label htmlFor="street">Street:</label>
+                                <input autoComplete="off" onChange={handleStreet} type="text" name="street" id="street" />
                             </li>
                             <li>
-                                <label htmlFor="home">Home Name:</label>
-                                <input onChange={handleHome} type="text" name="home" id="home" />
+                                <label htmlFor="home">Home:</label>
+                                <input autoComplete="off" onChange={handleHome} type="text" name="home" id="home" />
                             </li>
                         </ul>
+                        <div className={styles.formButtons}>
                             <button type='button' onClick={onClickSubmit} className={styles.submitButton} >SUBMIT</button>
                             <button type='button' onClick={onClickCancel} className={styles.cancelButton} >CANCEL</button>
+                        </div>
+
 
                     </form>
                 }
