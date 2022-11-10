@@ -8,17 +8,98 @@
 }
 
 .modalWindow {
+    display: flex;
+    justify-content: center;
     margin: 100px auto;
     border-radius: 26px;
     border: 1px solid var(--gray-color);
-    width: 500px;
+    width: 400px;
     height: 400px;
     background-color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
     box-shadow: 0 8px 20px var(--gray-color);
+}
+
+.orderForm {
+    margin-top: 15px;
+    width: 220px;
+}
+
+.orderForm li {
+    all: unset;
+    float: right;
+}
+
+.orderForm ul {
+    margin: 0;
+    padding: 0;
+
+}
+
+.orderForm li {
+    margin-bottom: 12px;
+}
+
+.orderForm li input {
+    all: unset;
+    background-color: transparent;
+    height: 22px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 2px solid #000;
 }
 
 .loader {
     margin: 80px auto;
     width: 200px;
     height: 200px;
+}
+
+.submitButton {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: 220px;
+    height: 35px;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'Space Grotesk';
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.submitButton:hover {
+    background-color: #000;
+    color: #fff;
+    transition: all 50ms ease-in;
+}
+
+.submitButton:active {
+    transform: scale(0.9);
+    transition: transform 100ms ease-out;
+    border: 0;
+}
+
+.cancelButton {
+    flex-shrink: 0;
+    background-color: transparent;
+    box-sizing: border-box;
+    margin-top: 5px;
+    width: 220px;
+    height: 35px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Space Grotesk';
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.cancelButton:active {
+    transform: scale(0.9);
+    transition: transform 100ms ease-out;
+    border: 0;
 }
