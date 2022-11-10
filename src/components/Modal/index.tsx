@@ -66,19 +66,19 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
                     <form autoComplete="off" name='orderForm' className={styles.orderForm}>
                         <ul>
                             <li>
-                                <label htmlFor="buyer">Name:<span>*</span></label>
+                                <label htmlFor="buyer">Name:{isWarn && <span>*</span>}</label>
                                 <input autoComplete="off" onChange={handleBuyer} type="text" name="buyer" id="buyer" />
                             </li>
                             <li>
-                                <label htmlFor="city">City:<span>*</span></label>
+                                <label htmlFor="city">City:{isWarn && <span>*</span>}</label>
                                 <input autoComplete="off" onChange={handleCity} type="text" name="city" id="city" />
                             </li>
                             <li>
-                                <label htmlFor="street">Street:<span>*</span></label>
+                                <label htmlFor="street">Street:{isWarn && <span>*</span>}</label>
                                 <input autoComplete="off" onChange={handleStreet} type="text" name="street" id="street" />
                             </li>
                             <li>
-                                <label htmlFor="home">Home:<span>*</span></label>
+                                <label htmlFor="home">Home:{isWarn && <span>*</span>}</label>
                                 <input autoComplete="off" onChange={handleHome} type="text" name="home" id="home" />
                             </li>
                         </ul>
