@@ -43,10 +43,10 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
         if (buyer && city && street && home) {
             setIsSubmitted(true);
             const date = Date.now();
-            
+
             const address: Address = { "city": city, "street": street, "home": home };
             const newOrder: Order = { "index": "1", "items": items, "buyer": buyer, "date": date, "orderPrice": orderPrice, "address": address };
-            
+
             await dispatch(postToOrders(newOrder));
             setIsSubmitted(false);
             navigate('/');
@@ -54,11 +54,13 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
             setIsWarn(true);
         }
     }
-    const onClickCancel = () => {
-        closeModal();
+    const onClickModalOverlay = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if ((event.target as HTMLDivElement).className === styles.modal) {
+            closeModal();
+        }
     }
     return (
-        <div className={styles.modal}>
+        <div onClick={onClickModalOverlay} className={styles.modal}>
             <div className={styles.modalWindow}>
                 {isWarn && <div onAnimationEnd={() => setAnimate(false)} className={animate ? styles.isWarn + ' ' + styles.animation : styles.isWarn}>Fill in all fields</div>}
                 {isSubmitted ? <div className={styles.loader} ><img width={100} height={100} src="/img/loader.gif" alt="Loader GIF" /></div> :
@@ -83,7 +85,7 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
                         </ul>
                         <div className={styles.formButtons}>
                             <button type='button' onClick={onClickSubmit} className={styles.submitButton} >SUBMIT</button>
-                            <button type='button' onClick={onClickCancel} className={styles.cancelButton} >CANCEL</button>
+                            <button type='button' onClick={() => closeModal()} className={styles.cancelButton} >CANCEL</button>
                         </div>
 
 
