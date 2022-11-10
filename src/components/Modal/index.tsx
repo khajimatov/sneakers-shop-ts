@@ -38,19 +38,20 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
         setHome(event.target.value);
     }
     const onClickSubmit = async () => {
+        setIsWarn(false);
         setAnimate(true);
         if (buyer && city && street && home) {
             setIsSubmitted(true);
             const date = Date.now();
-
+            
             const address: Address = { "city": city, "street": street, "home": home };
             const newOrder: Order = { "index": "1", "items": items, "buyer": buyer, "date": date, "orderPrice": orderPrice, "address": address };
-
+            
             await dispatch(postToOrders(newOrder));
             setIsSubmitted(false);
             navigate('/');
         } else {
-            setIsWarn(() => true);
+            setIsWarn(true);
         }
     }
     const onClickCancel = () => {
@@ -60,7 +61,7 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
         <div className={styles.modal}>
             <div className={styles.modalWindow}>
                 {isWarn && <div onAnimationEnd={() => setAnimate(false)} className={animate ? styles.isWarn + ' ' + styles.animation : styles.isWarn}>Fill in all fields</div>}
-                {isSubmitted ? <div className={styles.loader} ><img width={200} height={200} src="/img/loader.gif" alt="Loader GIF" /></div> :
+                {isSubmitted ? <div className={styles.loader} ><img width={100} height={100} src="/img/loader.gif" alt="Loader GIF" /></div> :
                     <form autoComplete="off" name='orderForm' className={styles.orderForm}>
                         <ul>
                             <li>
