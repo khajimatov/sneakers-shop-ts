@@ -9,6 +9,10 @@
     height: 100%;
 }
 
+.orderForm span {
+    color: #ffa1a1;
+}
+
 .modalWindow {
     position: fixed;
     display: flex;
@@ -24,10 +28,38 @@
     box-shadow: 0 8px 20px 3px #efefef;
 }
 
+.isWarn {
+    color: #ff5151;
+    position: absolute;
+    top: 12px;
+    animation: shake 0.2s ease-in-out 0s 2;
+}
+
+.animation {
+    animation: shake 0.2s ease-in-out 0s 2;
+}
+
+@keyframes shake {
+    0% {
+        margin-left: 0rem;
+    }
+
+    25% {
+        margin-left: 0.5rem;
+    }
+
+    75% {
+        margin-left: -0.5rem;
+    }
+
+    100% {
+        margin-left: 0rem;
+    }
+}
+
 .orderForm {
     margin-top: 25px;
     width: 280px;
-    /* background-color: aquamarine; */
 }
 
 .orderForm li {
@@ -59,7 +91,7 @@
     height: 22px;
     padding: 2px 5px;
     border-radius: 4px;
-    border: 2px solid #000;
+    border: 2px solid #414141;
 }
 
 .loader {
