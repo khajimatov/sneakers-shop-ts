@@ -62,7 +62,6 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
     return (
         <div onClick={onClickModalOverlay} className={styles.modal}>
             <div className={styles.modalWindow}>
-                {isWarn && <div onAnimationEnd={() => setAnimate(false)} className={animate ? styles.isWarn + ' ' + styles.animation : styles.isWarn}>Fill in all fields</div>}
                 {isSubmitted ? <div className={styles.loader} ><img width={100} height={100} src="/img/loader.gif" alt="Loader GIF" /></div> :
                     <form autoComplete="off" name='orderForm' className={styles.orderForm}>
                         <ul>
@@ -83,6 +82,7 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
                                 <input autoComplete="off" onChange={handleHome} type="text" name="home" id="home" />
                             </li>
                         </ul>
+                        {isWarn && <div onAnimationEnd={() => setAnimate(false)} className={animate ? styles.isWarn + ' ' + styles.animation : styles.isWarn}>Fill in all fields</div>}
                         <div className={styles.formButtons}>
                             <button type='button' onClick={onClickSubmit} className={styles.submitButton} >SUBMIT</button>
                             <button type='button' onClick={() => closeModal()} className={styles.cancelButton} >CANCEL</button>
