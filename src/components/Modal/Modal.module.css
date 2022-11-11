@@ -120,7 +120,7 @@
 }
 
 .submitButton {
-    margin-top: 20px;
+    margin-top: 15px;
     flex-shrink: 0;
     background-color: #000;
     color: #fff;
@@ -150,7 +150,7 @@
     box-shadow: 0 0;
 }
 
-.submitButton:focus {
+.submitButton:focus-visible {
     transform: scale(0.9);
     transition: transform 100ms ease-out;
     border: 0;
@@ -178,8 +178,7 @@
     border: 0;
 }
 
-.cancelButton:focus {
+.cancelButton:focus-visible {
     transform: scale(0.9);
     transition: transform 100ms ease-out;
-    border: 0;
 }
