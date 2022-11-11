@@ -150,13 +150,6 @@
     box-shadow: 0 0;
 }
 
-.submitButton:focus-visible {
-    transform: scale(0.9);
-    transition: transform 100ms ease-out;
-    border: 0;
-    box-shadow: 0 0;
-}
-
 .cancelButton {
     flex-shrink: 0;
     background-color: transparent;
@@ -176,9 +169,4 @@
     transform: scale(0.9);
     transition: transform 100ms ease-out;
     border: 0;
-}
-
-.cancelButton:focus-visible {
-    transform: scale(0.9);
-    transition: transform 100ms ease-out;
 }

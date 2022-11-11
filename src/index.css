@@ -3,6 +3,7 @@
   --gray-color: #c2c2c2;
   --red: linear-gradient(180deg, #F28179 0%, #F20D00 110%);
 }
+
 body {
   background-color: var(--accent-color);
   margin: 0;
@@ -23,4 +24,8 @@ a:visited {
 .active li {
   transform: translateY(-3px);
   transition: transform 100ms ease-in;
+}
+
+*:focus-visible {
+  text-decoration: underline;
 }
