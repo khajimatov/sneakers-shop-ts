@@ -51,10 +51,10 @@ export const postToCart =
                     if (axios.isAxiosError(error)) {
                         switch (error.response?.status) {
                             case 429:
-                                console.log(error.response.statusText);
+                                alert(error.response.data);
                                 break;
                             default:
-                                console.log(error.response?.statusText)
+                                alert(error.response?.data)
                                 break;
                         }
                     }
@@ -77,10 +77,10 @@ export const deleteFromCart =
                     if (axios.isAxiosError(error)) {
                         switch (error.response?.status) {
                             case 429:
-                                console.log(error.response.statusText);
+                                alert(error.response.data);
                                 break;
                             default:
-                                console.log(error.response?.statusText)
+                                alert(error.response?.data)
                                 break;
                         }
                     }
@@ -102,10 +102,10 @@ export const postToFavorites =
                     if (axios.isAxiosError(error)) {
                         switch (error.response?.status) {
                             case 429:
-                                console.log(error.response.statusText);
+                                alert(error.response.data);
                                 break;
                             default:
-                                console.log(error.response?.statusText)
+                                alert(error.response?.data)
                                 break;
                         }
                     }
@@ -128,10 +128,10 @@ export const deleteFromFavorites =
                     if (axios.isAxiosError(error)) {
                         switch (error.response?.status) {
                             case 429:
-                                console.log(error.response.statusText);
+                                alert(error.response.data);
                                 break;
                             default:
-                                console.log(error.response?.statusText)
+                                alert(error.response?.data)
                                 break;
                         }
                     }
@@ -156,10 +156,10 @@ export const postToOrders =
                     if (axios.isAxiosError(error)) {
                         switch (error.response?.status) {
                             case 429:
-                                console.log(error.response.statusText);
+                                alert(error.response.data);
                                 break;
                             default:
-                                console.log(error.response?.statusText)
+                                alert(error.response?.data)
                                 break;
                         }
                     }
