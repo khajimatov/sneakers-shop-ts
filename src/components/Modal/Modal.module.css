@@ -27,16 +27,21 @@
     padding: 20px;
     box-sizing: border-box;
     box-shadow: 0 8px 20px 3px #c4c4c4;
-    animation: whoop 0.2s ease-in-out;
+    animation: whoop 0.4s ease-in-out;
 }
 
 @keyframes whoop {
-    from {
+    0% {
         transform: translateY(50px);
         opacity: 0;
     }
 
-    to {
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+
+    100% {
         transform: translateY(0px);
         opacity: 1;
     }
@@ -169,4 +174,20 @@
     transform: scale(0.9);
     transition: transform 100ms ease-out;
     border: 0;
+}
+
+.animate_spin {
+    animation: spin 1s linear infinite;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
