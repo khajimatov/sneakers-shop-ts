@@ -1,0 +1,71 @@
+.card {
+    box-sizing: border-box;
+    width: 280px;
+    padding: 20px;
+    border: 1px solid var(--gray-color);
+    border-radius: 18px;
+    background-color: #fff;
+
+    &:hover,
+    &:hover .favoriteIcon path:nth-child(2) {
+        border-color: #000;
+        fill: #000;
+    }
+}
+
+.favoriteIcon {
+    position: absolute;
+
+    &:hover path {
+        fill: #EB3E34;
+        cursor: pointer;
+        background: linear-gradient(180deg, #F28179 0%, #F20D00 110%);
+    }
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: transform 100ms ease-in;
+    }
+
+    &:active {
+        transform: scale(0.9);
+        transition: transform 100ms ease-in;
+    }
+}
+
+.sneakerImage {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: scale-down;
+    pointer-events: none;
+    user-select: none;
+}
+
+.cardTitle {
+    margin: 15px 0px 0px;
+    text-transform: uppercase;
+}
+
+.cardFooter {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.animate_spin {
+    position: absolute;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

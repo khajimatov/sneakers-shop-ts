@@ -1,0 +1,60 @@
+header {
+    --asd: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 2px dashed #00000040;
+    margin-bottom: 30px;
+}
+
+.logoBlock {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    width: 273px;
+
+    h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 500;
+        color: #000;
+    }
+
+    h5 {
+        margin: 0;
+        margin-top: 3px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #000;
+    }
+
+    section:hover h2,
+    section:hover h5 {
+        cursor: pointer;
+        color: var(--accent-color);
+    }
+}
+
+header ul {
+    display: flex;
+    gap: 40px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header li {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    float: left;
+    font-weight: 500;
+
+    &:hover svg path,
+    &:hover {
+        color: var(--accent-color);
+        fill: var(--accent-color);
+    }
+}

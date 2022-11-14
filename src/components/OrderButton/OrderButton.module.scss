@@ -1,0 +1,23 @@
+.orderButton {
+    padding: 10px;
+    font-weight: 500;
+    font-family: 'Space Grotesk';
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    &:active {
+        transform: scale(0.9);
+        gap: 10px;
+        transition: all 100ms ease-out;
+    }
+
+    &:hover {
+        gap: 10px;
+        transition: gap 100ms ease-out;
+    }
+}

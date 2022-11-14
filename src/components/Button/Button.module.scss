@@ -1,0 +1,41 @@
+.buyButton {
+    outline: 0;
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    border-radius: 10px;
+    min-width: 80px;
+    height: 42px;
+    font-weight: 700;
+    font-family: 'Space Grotesk';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover:not([disabled]) {
+        cursor: pointer;
+        background-color: #000000;
+        color: #fff;
+        transition: background-color 100ms ease-in;
+    }
+
+    &:active:not([disabled]) {
+        transform: scale(0.9);
+        transition: transform 100ms ease-out;
+        box-shadow: none;
+    }
+}
+
+.animate_spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

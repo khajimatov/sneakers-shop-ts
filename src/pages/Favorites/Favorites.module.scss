@@ -1,0 +1,17 @@
+.headingContainer {
+    height: 48.8px;
+    display: flex;
+    align-items: center;
+}
+
+.heading {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    margin-top: 40px;
+    column-gap: 60px;
+    row-gap: 30px;
+    flex-wrap: wrap;
+}
