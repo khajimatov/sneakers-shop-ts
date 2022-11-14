@@ -75,7 +75,7 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
                         <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
                     </svg>
                     :
-                    <form name='orderForm' className={styles.orderForm}>
+                    <form autoComplete='off' name='orderForm' className={styles.orderForm}>
                         <ul>
                             <li>
                                 <label htmlFor="buyer">Name:{isWarn && <span>*</span>}</label>
