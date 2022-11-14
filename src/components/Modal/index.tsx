@@ -75,23 +75,23 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
                         <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
                     </svg>
                     :
-                    <form autoComplete="off" name='orderForm' className={styles.orderForm}>
+                    <form name='orderForm' className={styles.orderForm}>
                         <ul>
                             <li>
                                 <label htmlFor="buyer">Name:{isWarn && <span>*</span>}</label>
-                                <input autoFocus autoComplete="off" onChange={handleBuyer} type="text" name="buyer" id="buyer" />
+                                <input autoComplete='new' onChange={handleBuyer} type="text" name="Buyer" id="buyer" />
                             </li>
                             <li>
                                 <label htmlFor="city">City:{isWarn && <span>*</span>}</label>
-                                <input autoComplete="off" onChange={handleCity} type="text" name="city" id="city" />
+                                <input autoComplete='new' onChange={handleCity} type="text" name="City" id="city" />
                             </li>
                             <li>
                                 <label htmlFor="street">Street:{isWarn && <span>*</span>}</label>
-                                <input autoComplete="off" onChange={handleStreet} type="text" name="street" id="street" />
+                                <input autoComplete='new' onChange={handleStreet} type="text" name="Street" id="street" />
                             </li>
                             <li>
                                 <label htmlFor="home">Home:{isWarn && <span>*</span>}</label>
-                                <input autoComplete="off" onChange={handleHome} type="text" name="home" id="home" />
+                                <input onChange={handleHome} type="text" name="Home" id="home" />
                             </li>
                         </ul>
                         {isWarn && <div onAnimationEnd={() => setAnimate(false)} className={animate ? styles.isWarn + ' ' + styles.animation : styles.isWarn}>Fill in all fields</div>}
