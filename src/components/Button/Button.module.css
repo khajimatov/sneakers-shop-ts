@@ -8,6 +8,9 @@
     height: 42px;
     font-weight: 700;
     font-family: 'Space Grotesk';
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .buyButton:hover:not([disabled]) {
@@ -21,4 +24,18 @@
     transform: scale(0.9);
     transition: transform 100ms ease-out;
     box-shadow: none;
+}
+
+.animate_spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
