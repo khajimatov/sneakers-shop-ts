@@ -79,7 +79,7 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
                         <ul>
                             <li>
                                 <label htmlFor="buyer">Name:{isWarn && <span>*</span>}</label>
-                                <input autoComplete='new' onChange={handleBuyer} type="text" name="Buyer" id="buyer" />
+                                <input autoFocus autoComplete='new' onChange={handleBuyer} type="text" name="Buyer" id="buyer" />
                             </li>
                             <li>
                                 <label htmlFor="city">City:{isWarn && <span>*</span>}</label>
