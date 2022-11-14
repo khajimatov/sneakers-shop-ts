@@ -39,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({ thisCard, text }) => {
         setDisable(false);
     }
     return (
-        <button disabled={disable} onClick={onBuyClick} className={styles.buyButton}>{disable ? <img width={18} height={18} src="/img/loader.gif" alt="Loader GIF" /> : isAdded(thisCard) ? "REMOVE" : text}</button>
+        <button disabled={disable} onClick={onBuyClick} className={styles.buyButton}>{disable ? <img width={20} height={20} src="/img/loader.gif" alt="Loader GIF" /> : isAdded(thisCard) ? "REMOVE" : text}</button>
     )
 }
 

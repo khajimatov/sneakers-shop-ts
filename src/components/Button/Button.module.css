@@ -1,5 +1,4 @@
 .buyButton {
-    border: 0;
     outline: 0;
     background-color: #fff;
     border: 2px solid #000;
@@ -11,14 +10,14 @@
     font-family: 'Space Grotesk';
 }
 
-.buyButton:hover {
+.buyButton:hover:not([disabled]) {
     cursor: pointer;
     background-color: #000000;
     color: #fff;
     transition: background-color 100ms ease-in;
 }
 
-.buyButton:active {
+.buyButton:active:not([disabled]) {
     transform: scale(0.9);
     transition: transform 100ms ease-out;
     box-shadow: none;
