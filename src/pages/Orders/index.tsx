@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import styles from './Orders.module.css';
+import styles from './Orders.module.scss';
 
 import Empty from '../../components/Empty';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';

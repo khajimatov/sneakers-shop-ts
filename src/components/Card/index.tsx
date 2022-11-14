@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import styles from './Card.module.css';
+import styles from './Card.module.scss';
 
 import Button from '../Button';
 import { deleteFromFavorites, postToFavorites } from '../../store/actions';

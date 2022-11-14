@@ -2,7 +2,7 @@ import React from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 import { RootState } from '../../index';
 import { useAppSelector } from '../../store/hooks';

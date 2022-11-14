@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './OrderContainer.module.css';
+import styles from './OrderContainer.module.scss';
 
 import { Order } from '../../types';
 import OrderCard from '../OrderCard';

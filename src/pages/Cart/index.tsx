@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from './Cart.module.css';
+import styles from './Cart.module.scss';
 
 import { RootState } from '../../index';
 

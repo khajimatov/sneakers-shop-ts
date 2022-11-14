@@ -4,7 +4,7 @@ import { RootState } from '../..';
 import { postToOrders } from '../../store/actions';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { Address, Order } from '../../types';
-import styles from './Modal.module.css';
+import styles from './Modal.module.scss';
 
 interface ModalProps {
     closeModal: Function

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import styles from './Home.module.css';
+import styles from './Home.module.scss';
 
 import Card from '../../components/Card';
 import Empty from '../../components/Empty';

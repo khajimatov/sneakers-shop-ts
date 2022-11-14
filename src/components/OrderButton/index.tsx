@@ -3,7 +3,7 @@ import { setOrderPrice } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
 import { Item } from '../../types';
 import Modal from '../Modal';
-import styles from './OrderButton.module.css';
+import styles from './OrderButton.module.scss';
 
 interface OrderButtonProps {
     items: Item[],

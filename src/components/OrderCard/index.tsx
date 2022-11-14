@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './OrderCard.module.css';
+import styles from './OrderCard.module.scss';
 
 interface OrderCardProps {
     title: string,

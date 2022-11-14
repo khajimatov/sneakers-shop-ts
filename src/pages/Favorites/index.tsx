@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import styles from './Favorites.module.css';
+import styles from './Favorites.module.scss';
 
 import { RootState } from '../../index';
 

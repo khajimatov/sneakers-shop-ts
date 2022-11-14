@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './Empty.module.css';
+import styles from './Empty.module.scss';
 
 interface EmptyProps {
     title: string

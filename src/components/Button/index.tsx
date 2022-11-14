@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './Button.module.css';
+import styles from './Button.module.scss';
 
 import { deleteFromCart, postToCart } from '../../store/actions';
 
