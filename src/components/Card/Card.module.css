@@ -24,7 +24,7 @@
 }
 
 .card .favoriteIcon:active {
-    transform: scale(1);
+    transform: scale(0.9);
     transition: transform 100ms ease-in;
 }
 
@@ -53,4 +53,19 @@
     margin-top: 10px;
     justify-content: space-between;
     align-items: center;
+}
+
+.animate_spin {
+    position: absolute;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
