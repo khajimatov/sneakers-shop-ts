@@ -1,6 +1,29 @@
-.sorting {
-    all: unset;
-    padding: 10px;
+.container {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: 40px;
     border: 1px solid var(--gray-color);
     border-radius: 12px;
+    min-width: 140px;
+    gap: 10px;
+}
+
+.sorting {
+    all: unset;
+    line-height: 40px;
+}
+
+.animate_spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
