@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { setCart, setFavorites, setItems } from '../../store/actions';
 import { RootState } from '../..';
+import SortButton from '../../components/SortButton';
 
 const Home: React.FC = () => {
 
@@ -41,6 +42,7 @@ const Home: React.FC = () => {
         <div className={styles.home}>
             <div className={styles.homeHeader}>
                 <h1>Sneakers</h1>
+                <SortButton />
                 <div className={styles.search}>
                     <label htmlFor="search">
                         <svg
