@@ -1,7 +1,6 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { setItems } from '../../store/actions';
+import { paginate } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
 
 const Pagination: React.FC = () => {
@@ -26,9 +25,8 @@ const Pagination: React.FC = () => {
     async function onClick(val: string) {
         URLParams.set('p', val);
         navigate('?' + URLParams.toString());
-        const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?p=${val}&l=8`)
+        dispatch(paginate(URLParams.toString()));
         setPageNum(val);
-        dispatch(setItems(data));
     }
 
     return (

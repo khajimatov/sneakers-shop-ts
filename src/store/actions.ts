@@ -195,3 +195,21 @@ export const setSorting =
                 }
             }
         }
+export const paginate =
+    (URLParams: string): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
+        async dispatch => {
+            try {
+                const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?${URLParams}`);
+                dispatch(setItems(data));
+            }
+            catch (error) {
+                if (error) {
+                    if (axios.isAxiosError(error)) {
+                        alert(error.code)
+                    }
+                }
+                else {
+                    alert('Unexpected error: ' + error);
+                }
+            }
+        }
