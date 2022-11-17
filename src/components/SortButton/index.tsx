@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { URLSearchParams } from 'url';
+import { RootState } from '../..';
 import { setSorting } from '../../store/actions';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import styles from './SortButton.module.scss'
 
 interface SortButtonProps {
@@ -13,22 +14,32 @@ const SortButton = ({ URLParams }: SortButtonProps) => {
     const [load, setLoad] = useState(false);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const URLREDUX = useAppSelector((state: RootState) => state.URLParams);
 
     const onOptionChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
         setLoad(true);
         URLParams.set('sortby', 'price');
-        await dispatch(setSorting(e.target.value, URLParams));
         setLoad(false);
+        await dispatch(setSorting(e.target.value, URLParams));
         if (e.target.value === 'high') {
             URLParams.set('order', 'desc');
-        } else if (e.target.value) {
+        } else if (e.target.value === 'low') {
             URLParams.delete('order');
         } else if (e.target.value === 'sort') {
             URLParams.delete('order');
             URLParams.delete('sortby');
         }
+
         navigate(`?${URLParams.toString()}`);
+        // console.log(URLREDUX);
     }
+
+    useEffect(() => {
+        if (URLREDUX) {
+            console.log(URLREDUX);
+
+        }
+    }, [URLREDUX])
 
     return (
         <div className={styles.container}>

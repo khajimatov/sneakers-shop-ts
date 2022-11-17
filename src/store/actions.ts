@@ -1,4 +1,4 @@
-import { SET_ITEMS, SET_CART, SET_FAVORITES, ADD_TO_CART, CLEAR_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_ORDER_PRICE } from "./actionTypes";
+import { SET_ITEMS, SET_URL_PARAMS, SET_CART, SET_FAVORITES, ADD_TO_CART, CLEAR_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_ORDER_PRICE } from "./actionTypes";
 import { ThunkAction } from '@reduxjs/toolkit';
 import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
@@ -11,6 +11,9 @@ export const setOrderPrice = (value: number) => {
 }
 export const setItems = (value: Item[]) => {
     return { type: SET_ITEMS, items: value };
+}
+export const setURLParams = (value: string) => {
+    return { type: SET_URL_PARAMS, URLParams: value };
 }
 export const setCart = (value: Item[]) => {
     return { type: SET_CART, items: value };
@@ -188,6 +191,8 @@ export const setSorting =
                     const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?${URLParams.toString()}`)
                     dispatch(setItems(data));
                 }
+                dispatch(setURLParams(URLParams.toString()));
+                console.log(URLParams.toString())
             }
             catch (error) {
                 if (error) {

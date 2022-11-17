@@ -23,7 +23,8 @@ export interface Action {
     items: Item[],
     orders: Order[],
     order: Order,
-    orderPrice: number
+    orderPrice: number,
+    URLParams: string
 }
 
 export interface IState {
@@ -32,5 +33,6 @@ export interface IState {
     favorites: Item[],
     orders: Order[],
     modal: boolean,
-    orderPrice: number
+    orderPrice: number,
+    URLParams: string
 }
