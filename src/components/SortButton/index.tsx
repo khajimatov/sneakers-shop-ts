@@ -1,16 +1,33 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { URLSearchParams } from 'url';
 import { setSorting } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
 import styles from './SortButton.module.scss'
 
-const SortButton = () => {
+interface SortButtonProps {
+    URLParams: URLSearchParams
+}
+
+const SortButton = ({ URLParams }: SortButtonProps) => {
     const [load, setLoad] = useState(false);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const onOptionChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
         setLoad(true);
-        await dispatch(setSorting(e.target.value));
+        URLParams.set('sortby', 'price');
+        await dispatch(setSorting(e.target.value, URLParams));
         setLoad(false);
+        if (e.target.value === 'high') {
+            URLParams.set('order', 'desc');
+        } else if (e.target.value) {
+            URLParams.delete('order');
+        } else if (e.target.value === 'sort') {
+            URLParams.delete('order');
+            URLParams.delete('sortby');
+        }
+        navigate(`?${URLParams.toString()}`);
     }
 
     return (

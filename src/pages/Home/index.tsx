@@ -30,7 +30,7 @@ const Home: React.FC = () => {
             dispatch(setCart(cartResponse.data));
             dispatch(setFavorites(favoritesResponse.data));
         }())
-    }, [dispatch])
+    }, [])
 
     const items = useAppSelector((state: RootState) => state.items);
 
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
         <div className={styles.home}>
             <div className={styles.homeHeader}>
                 <h1>Sneakers</h1>
-                <SortButton />
+                <SortButton URLParams={URLParams} />
                 <div className={styles.search}>
                     <label htmlFor="search">
                         <svg

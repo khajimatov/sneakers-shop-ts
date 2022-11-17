@@ -4,6 +4,7 @@ import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
 import { Item, Order } from '../types';
 import axios from "axios";
+import { URLSearchParams } from "url";
 
 export const setOrderPrice = (value: number) => {
     return { type: SET_ORDER_PRICE, orderPrice: value };
@@ -170,17 +171,21 @@ export const postToOrders =
             }
         }
 export const setSorting =
-    (sortingType: string): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
+    (sortingType: string, URLParams: URLSearchParams): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
         async dispatch => {
             try {
                 if (sortingType === 'high') {
-                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price&order=desc&p=1&l=8`)
+                    URLParams.set('order', 'desc');
+                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?${URLParams.toString()}`)
                     dispatch(setItems(data));
                 } else if (sortingType === 'low') {
-                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price&p=1&l=8`)
+                    URLParams.delete('order');
+                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?${URLParams.toString()}`)
                     dispatch(setItems(data));
                 } else if (sortingType === 'sort') {
-                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?p=1&l=8`)
+                    URLParams.delete('order');
+                    URLParams.delete('sortby');
+                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?${URLParams.toString()}`)
                     dispatch(setItems(data));
                 }
             }
