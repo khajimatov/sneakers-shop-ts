@@ -1,6 +1,5 @@
-import axios from 'axios';
 import React, { useState } from 'react'
-import { setItems, setSorting } from '../../store/actions';
+import { setSorting } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
 import styles from './SortButton.module.scss'
 
