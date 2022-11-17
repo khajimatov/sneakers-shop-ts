@@ -27,6 +27,7 @@ a:visited {
 }
 
 *:focus-visible {
+  outline: 0;
   text-decoration: underline;
 }
 
