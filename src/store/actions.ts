@@ -169,3 +169,29 @@ export const postToOrders =
                 }
             }
         }
+export const setSorting =
+    (sortingType: string): ThunkAction<Promise<void>, RootState, unknown, AnyAction> =>
+        async dispatch => {
+            try {
+                if (sortingType === 'high') {
+                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price&order=desc`)
+                    dispatch(setItems(data));
+                } else if (sortingType === 'low') {
+                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price`)
+                    dispatch(setItems(data));
+                } else if (sortingType === 'sort') {
+                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items`)
+                    dispatch(setItems(data));
+                }
+            }
+            catch (error) {
+                if (error) {
+                    if (axios.isAxiosError(error)) {
+                        alert(error.response?.data)
+                    }
+                }
+                else {
+                    alert('Unexpected error: ' + error);
+                }
+            }
+        }

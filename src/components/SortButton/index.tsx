@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { setItems } from '../../store/actions';
+import { setItems, setSorting } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
 import styles from './SortButton.module.scss'
 
@@ -10,16 +10,7 @@ const SortButton = () => {
 
     const onOptionChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
         setLoad(true);
-        if (e.target.value === 'high') {
-            const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price&order=desc`)
-            dispatch(setItems(data));
-        } else if (e.target.value === 'low') {
-            const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price`)
-            dispatch(setItems(data));
-        } else if (e.target.value === 'sort') {
-            const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items`)
-            dispatch(setItems(data));
-        }
+        await dispatch(setSorting(e.target.value));
         setLoad(false);
     }
 
