@@ -35,10 +35,9 @@
 }
 
 .sneakerImage {
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    object-fit: scale-down;
+    display: block;
+    margin: 10px auto 0px;
+    object-fit: cover;
     pointer-events: none;
     user-select: none;
 }
