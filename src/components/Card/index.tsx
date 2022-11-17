@@ -70,7 +70,7 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
                 </svg>
             }
             <img className={styles.sneakerImage} width={200} height={100} src={imageURL} alt={'Image of ' + title} />
-            <h4 className={styles.cardTitle}>{title}</h4>
+            <h4 title={title} className={styles.cardTitle}>{title}</h4>
             <hr />
             <div className={styles.cardFooter}>
                 <section>
