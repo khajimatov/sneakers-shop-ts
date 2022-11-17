@@ -7,7 +7,7 @@ const Pagination: React.FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    const [URLParams, setURLParams] = useSearchParams(location.search);
+    const [URLParams, setURLParams] = useSearchParams();
     const [pageNum, setPageNum] = useState('');
 
     useEffect(() => {

@@ -10,14 +10,22 @@ import { setCart, setFavorites, setItems } from '../../store/actions';
 import { RootState } from '../..';
 import SortButton from '../../components/SortButton';
 import Pagination from '../../components/Pagination';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 const Home: React.FC = () => {
 
     const dispatch = useAppDispatch();
+    const location = useLocation();
+    const [URLParams, setURLParams] = useSearchParams();
 
     useEffect(() => {
         (async function fetchItems() {
-            const [itemsResponse, cartResponse, favoritesResponse] = await Promise.all([axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/items?p=1&l=8'), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/cart'), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/favorites')]);
+            setURLParams(location.search);
+            URLParams.set('l', '8');
+            if (URLParams.has('p') === false) {
+                URLParams.set('p', '1');
+            }
+            const [itemsResponse, cartResponse, favoritesResponse] = await Promise.all([axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?${URLParams}`), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/cart'), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/favorites')]);
             dispatch(setItems(itemsResponse.data));
             dispatch(setCart(cartResponse.data));
             dispatch(setFavorites(favoritesResponse.data));
