@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         (async function fetchItems() {
-            const [itemsResponse, cartResponse, favoritesResponse] = await Promise.all([axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/items'), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/cart'), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/favorites')]);
+            const [itemsResponse, cartResponse, favoritesResponse] = await Promise.all([axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/items?p=1&l=8'), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/cart'), axios.get('https://611a826e5710ca00173a1a6e.mockapi.io/favorites')]);
             dispatch(setItems(itemsResponse.data));
             dispatch(setCart(cartResponse.data));
             dispatch(setFavorites(favoritesResponse.data));
