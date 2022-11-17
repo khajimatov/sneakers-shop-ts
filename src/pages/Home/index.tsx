@@ -16,12 +16,11 @@ const Home: React.FC = () => {
 
     const dispatch = useAppDispatch();
     const location = useLocation();
-    const [URLParams, setURLParams] = useSearchParams();
+    const [URLParams, setURLParams] = useSearchParams('l=8');
 
     useEffect(() => {
         (async function fetchItems() {
             setURLParams(location.search);
-            URLParams.set('l', '8');
             if (URLParams.has('p') === false) {
                 URLParams.set('p', '1');
             }
@@ -30,7 +29,8 @@ const Home: React.FC = () => {
             dispatch(setCart(cartResponse.data));
             dispatch(setFavorites(favoritesResponse.data));
         }())
-    }, [])
+    }, [URLParams])
+    console.log(URLParams.toString());
 
     const items = useAppSelector((state: RootState) => state.items);
 

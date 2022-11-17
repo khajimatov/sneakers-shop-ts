@@ -19,25 +19,13 @@ const SortButton = ({ URLParams }: SortButtonProps) => {
     const onOptionChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
         setLoad(true);
         URLParams.set('sortby', 'price');
-        setLoad(false);
         await dispatch(setSorting(e.target.value, URLParams));
-        if (e.target.value === 'high') {
-            URLParams.set('order', 'desc');
-        } else if (e.target.value === 'low') {
-            URLParams.delete('order');
-        } else if (e.target.value === 'sort') {
-            URLParams.delete('order');
-            URLParams.delete('sortby');
-        }
-
-        navigate(`?${URLParams.toString()}`);
-        // console.log(URLREDUX);
+        setLoad(false);
     }
 
     useEffect(() => {
         if (URLREDUX) {
-            console.log(URLREDUX);
-
+            navigate(`?${URLREDUX}`);
         }
     }, [URLREDUX])
 

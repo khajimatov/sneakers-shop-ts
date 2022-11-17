@@ -7,20 +7,19 @@ const Pagination: React.FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    const [URLParams, setURLParams] = useSearchParams();
+    const [URLParams, setURLParams] = useSearchParams('l=8');
     const [pageNum, setPageNum] = useState('');
 
     useEffect(() => {
         (function fetchSearchParams() {
             setURLParams(location.search);
-            URLParams.set('l', '8');
             if (URLParams.has('p')) {
                 setPageNum(URLParams.get('p')!);
             } else {
                 setPageNum('1');
             }
         }())
-    }, [])
+    }, [URLParams])
 
     async function onClick(val: string) {
         URLParams.set('p', val);
