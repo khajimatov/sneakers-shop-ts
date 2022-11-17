@@ -16,6 +16,9 @@ const SortButton = () => {
         } else if (e.target.value === 'low') {
             const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price`)
             dispatch(setItems(data));
+        } else if (e.target.value === 'sort') {
+            const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items`)
+            dispatch(setItems(data));
         }
         setLoad(false);
     }
@@ -23,7 +26,7 @@ const SortButton = () => {
     return (
         <div className={styles.container}>
             <select onChange={onOptionChange} className={styles.sorting} name="sorting" id="sorting">
-                <option value="sort">Sorting</option>
+                <option value="sort">Sort by:</option>
                 <option value="low">Price: Low to High</option>
                 <option value="high">Price: High to Low</option>
             </select>
