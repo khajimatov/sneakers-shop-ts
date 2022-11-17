@@ -174,20 +174,20 @@ export const setSorting =
         async dispatch => {
             try {
                 if (sortingType === 'high') {
-                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price&order=desc`)
+                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price&order=desc&p=1&l=8`)
                     dispatch(setItems(data));
                 } else if (sortingType === 'low') {
-                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price`)
+                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?sortby=price&p=1&l=8`)
                     dispatch(setItems(data));
                 } else if (sortingType === 'sort') {
-                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items`)
+                    const { data } = await axios.get(`https://611a826e5710ca00173a1a6e.mockapi.io/items?p=1&l=8`)
                     dispatch(setItems(data));
                 }
             }
             catch (error) {
                 if (error) {
                     if (axios.isAxiosError(error)) {
-                        alert(error.response?.data)
+                        alert(error.code)
                     }
                 }
                 else {
