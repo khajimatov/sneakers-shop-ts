@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { setCart, setFavorites, setItems } from '../../store/actions';
 import { RootState } from '../..';
 import SortButton from '../../components/SortButton';
+import Pagination from '../../components/Pagination';
 
 const Home: React.FC = () => {
 
@@ -66,6 +67,7 @@ const Home: React.FC = () => {
             </div>
             <div className={styles.container}>
                 {renderItems()}
+                <Pagination />
             </div>
         </div>
     )
