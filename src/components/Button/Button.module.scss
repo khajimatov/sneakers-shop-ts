@@ -13,7 +13,6 @@
     align-items: center;
 
     &:hover:not([disabled]) {
-        cursor: pointer;
         background-color: #000000;
         color: #fff;
         transition: background-color 100ms ease-in;
