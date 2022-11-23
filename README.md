@@ -26,7 +26,7 @@ This project is a successor of one of my previos projects - [Sneakers Shop][Snea
 - [x] Middleware
 - [x] Redux thunk
 - [ ] Redux Saga
-- [ ] Radix UI
+- [x] Radix UI
 - [ ] Deployment
 - [ ] Jest
 - [x] SCSS
