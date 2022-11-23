@@ -1,10 +1,13 @@
 import React from 'react';
+
 import { RootState } from '../..';
 import { removeToast } from '../../store/actions';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
+
+import * as Toast from '@radix-ui/react-toast';
 import styles from './Toast.module.scss';
 
-const Toast: React.FC = () => {
+const RadixToast: React.FC = () => {
     const toastText = useAppSelector((state: RootState) => state.toastText);
     const dispatch = useAppDispatch();
 
@@ -13,8 +16,23 @@ const Toast: React.FC = () => {
     }
 
     return (
-        <div className={styles.toast}>{toastText}<button onClick={() => onCloseToast()} >X</button></div>
+        <Toast.Provider>
+            <Toast.Root onOpenChange={onCloseToast} className={styles.ToastRoot}>
+                <Toast.Title className={styles.ToastTitle}>Error</Toast.Title>
+                <Toast.Description asChild>
+                    <div className={styles.ToastDescription}>{toastText}</div>
+                </Toast.Description>
+                <Toast.Action
+                    className={styles.ToastAction}
+                    asChild
+                    altText="Close Toast"
+                >
+                    <button onClick={onCloseToast} className={`${styles.Button + ' ' + styles.small + ' ' + styles.slate}`}>Close</button>
+                </Toast.Action>
+            </Toast.Root>
+            <Toast.Viewport className={styles.ToastViewport} />
+        </Toast.Provider>
     )
 }
 
-export default Toast;
+export default RadixToast;
