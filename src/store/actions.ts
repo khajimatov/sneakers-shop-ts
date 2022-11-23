@@ -136,7 +136,7 @@ export const postToOrders =
             catch (error) {
                 if (error) {
                     if (axios.isAxiosError(error)) {
-                        dispatch(setToast(error.code!));
+                        dispatch(setToast(`${error.response?.status + ': ' + error.response?.data}`));
                     }
                 }
                 else {
