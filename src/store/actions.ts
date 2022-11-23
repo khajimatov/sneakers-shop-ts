@@ -1,4 +1,4 @@
-import { SET_ITEMS, SET_URL_PARAMS, SET_CART, SET_FAVORITES, ADD_TO_CART, CLEAR_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_ORDER_PRICE } from "./actionTypes";
+import { SET_ITEMS, SET_TOAST, REMOVE_TOAST, SET_URL_PARAMS, SET_CART, SET_FAVORITES, ADD_TO_CART, CLEAR_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_ORDER_PRICE } from "./actionTypes";
 import { ThunkAction } from '@reduxjs/toolkit';
 import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
@@ -8,6 +8,12 @@ import { URLSearchParams } from "url";
 
 export const setOrderPrice = (value: number) => {
     return { type: SET_ORDER_PRICE, orderPrice: value };
+}
+export const setToast = (value: string) => {
+    return { type: SET_TOAST, toastText: value };
+}
+export const removeToast = () => {
+    return { type: REMOVE_TOAST, toastText: '' };
 }
 export const setItems = (value: Item[]) => {
     return { type: SET_ITEMS, items: value };
@@ -53,18 +59,11 @@ export const postToCart =
             catch (error) {
                 if (error) {
                     if (axios.isAxiosError(error)) {
-                        switch (error.response?.status) {
-                            case 429:
-                                alert(error.response.data);
-                                break;
-                            default:
-                                alert(error.response?.data)
-                                break;
-                        }
+                        alert(error.code)
                     }
-                    else {
-                        alert('Unexpected error: ' + error);
-                    }
+                }
+                else {
+                    alert('Unexpected error: ' + error);
                 }
             }
         }
@@ -79,18 +78,11 @@ export const deleteFromCart =
             catch (error) {
                 if (error) {
                     if (axios.isAxiosError(error)) {
-                        switch (error.response?.status) {
-                            case 429:
-                                alert(error.response.data);
-                                break;
-                            default:
-                                alert(error.response?.data)
-                                break;
-                        }
+                        alert(error.code)
                     }
-                    else {
-                        alert('Unexpected error: ' + error);
-                    }
+                }
+                else {
+                    alert('Unexpected error: ' + error);
                 }
             }
         }
@@ -104,18 +96,11 @@ export const postToFavorites =
             catch (error) {
                 if (error) {
                     if (axios.isAxiosError(error)) {
-                        switch (error.response?.status) {
-                            case 429:
-                                alert(error.response.data);
-                                break;
-                            default:
-                                alert(error.response?.data)
-                                break;
-                        }
+                        alert(error.code)
                     }
-                    else {
-                        alert('Unexpected error: ' + error);
-                    }
+                }
+                else {
+                    alert('Unexpected error: ' + error);
                 }
             }
         }
@@ -130,18 +115,11 @@ export const deleteFromFavorites =
             catch (error) {
                 if (error) {
                     if (axios.isAxiosError(error)) {
-                        switch (error.response?.status) {
-                            case 429:
-                                alert(error.response.data);
-                                break;
-                            default:
-                                alert(error.response?.data)
-                                break;
-                        }
+                        alert(error.code)
                     }
-                    else {
-                        alert('Unexpected error: ' + error);
-                    }
+                }
+                else {
+                    alert('Unexpected error: ' + error);
                 }
             }
         }
@@ -158,18 +136,11 @@ export const postToOrders =
             catch (error) {
                 if (error) {
                     if (axios.isAxiosError(error)) {
-                        switch (error.response?.status) {
-                            case 429:
-                                alert(error.response.data);
-                                break;
-                            default:
-                                alert(error.response?.data)
-                                break;
-                        }
+                        dispatch(setToast(error.code!));
                     }
-                    else {
-                        alert('Unexpected error: ' + error);
-                    }
+                }
+                else {
+                    dispatch(setToast('Unexpected error: ' + error));
                 }
             }
         }

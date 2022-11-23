@@ -2,6 +2,9 @@ export const SET_ITEMS = "SET_ITEMS";
 
 export const SET_URL_PARAMS = "SET_URL_PARAMS";
 
+export const SET_TOAST = "SET_TOAST";
+export const REMOVE_TOAST = "REMOVE_TOAST";
+
 export const SET_CART = "SET_CART";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const CLEAR_CART = "CLEAR_CART";

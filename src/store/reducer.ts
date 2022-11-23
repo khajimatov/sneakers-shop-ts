@@ -1,4 +1,4 @@
-import { SET_ITEMS, SET_URL_PARAMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART, CLEAR_CART, SET_ORDER_PRICE } from "./actionTypes";
+import { SET_ITEMS, SET_TOAST, REMOVE_TOAST, SET_URL_PARAMS, SET_FAVORITES, ADD_TO_CART, ADD_TO_FAVORITES, SET_ORDERS, ADD_TO_ORDERS, REMOVE_FROM_CART, REMOVE_FROM_FAVORITES, SET_CART, CLEAR_CART, SET_ORDER_PRICE } from "./actionTypes";
 import { IState, Action } from "../types";
 const initialState: IState = {
     items: [],
@@ -7,13 +7,18 @@ const initialState: IState = {
     orders: [],
     modal: false,
     orderPrice: 0,
-    URLParams: ''
+    URLParams: '',
+    toastText: ''
 };
 
 const reducer = (state = initialState, action: Action) => {
     switch (action.type) {
         case SET_ORDER_PRICE:
             return { ...state, orderPrice: action.orderPrice }
+        case SET_TOAST:
+            return { ...state, toastText: action.toastText }
+        case REMOVE_TOAST:
+            return { ...state, toastText: action.toastText }
         case SET_URL_PARAMS:
             return { ...state, URLParams: action.URLParams }
         case SET_ITEMS:
