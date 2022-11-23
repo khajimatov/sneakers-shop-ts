@@ -24,7 +24,8 @@ export interface Action {
     orders: Order[],
     order: Order,
     orderPrice: number,
-    URLParams: string
+    URLParams: string,
+    toastText: string
 }
 
 export interface IState {
@@ -34,5 +35,6 @@ export interface IState {
     orders: Order[],
     modal: boolean,
     orderPrice: number,
-    URLParams: string
+    URLParams: string,
+    toastText: string
 }
