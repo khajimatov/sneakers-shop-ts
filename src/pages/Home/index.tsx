@@ -30,7 +30,6 @@ const Home: React.FC = () => {
             dispatch(setFavorites(favoritesResponse.data));
         }())
     }, [URLParams])
-    console.log(URLParams.toString());
 
     const items = useAppSelector((state: RootState) => state.items);
 
