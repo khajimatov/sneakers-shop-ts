@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { paginate } from '../../store/actions';
 import { useAppDispatch } from '../../store/hooks';
+import styles from './Pagination.module.scss';
 
 const Pagination: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -29,7 +30,7 @@ const Pagination: React.FC = () => {
     }
 
     return (
-        <div><button disabled={pageNum === "1"} onClick={() => onClick("1")}>1</button><button disabled={pageNum === "2"} onClick={() => onClick("2")}>2</button></div>
+        <div>Page: <button className={styles.pageButton} disabled={pageNum === "1"} onClick={() => onClick("1")}>1</button><button className={styles.pageButton} disabled={pageNum === "2"} onClick={() => onClick("2")}>2</button></div>
     )
 }
 
