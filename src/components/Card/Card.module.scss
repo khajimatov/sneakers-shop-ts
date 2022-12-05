@@ -18,12 +18,10 @@
 
     &:hover path {
         fill: #EB3E34;
-        cursor: pointer;
         background: linear-gradient(180deg, #F28179 0%, #F20D00 110%);
     }
 
     &:hover {
-        cursor: pointer;
         transform: scale(1.1);
         transition: transform 100ms ease-in;
     }
