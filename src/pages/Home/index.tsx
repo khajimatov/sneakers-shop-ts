@@ -74,8 +74,8 @@ const Home: React.FC = () => {
             </div>
             <div className={styles.container}>
                 {renderItems()}
-                <Pagination />
             </div>
+                <Pagination />
         </div>
     )
 };
