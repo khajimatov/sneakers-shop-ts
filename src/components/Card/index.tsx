@@ -31,16 +31,12 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
     const onFavoriteClick = async (e: React.MouseEvent) => {
 
         setLiked(true);
-        const favoriteClickSound = document.querySelector<HTMLAudioElement>('#favoriteClickSound');
-        favoriteClickSound!.volume = 0.01;
 
         try {
             if (isLiked(thisCard)) {
                 await dispatch(deleteFromFavorites(thisCard));
             } else {
                 await dispatch(postToFavorites(thisCard));
-                favoriteClickSound!.currentTime = 0;
-                favoriteClickSound?.play();
             }
         } catch (error) {
             alert(error);
@@ -50,7 +46,6 @@ const Card: React.FC<CardProps> = ({ id, title, imageURL, price }) => {
 
     return (
         <div className={styles.card} id={id}>
-            <audio id="favoriteClickSound" src="/audio/favorite.wav" preload="metadata"></audio>
             {liked
                 ?
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className={styles.animate_spin}>
